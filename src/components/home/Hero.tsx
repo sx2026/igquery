@@ -22,7 +22,7 @@ export default function Hero() {
           </span>
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-lg text-zinc-600 dark:text-zinc-400 sm:text-xl leading-relaxed">
-          Generate optimized Instagram queries for content inspiration, 
+          Your free tool for <strong>Instagram search query optimization</strong>. Generating smart queries to help with content inspiration, 
           creator discovery, competitor research, and local search.
         </p>
       </motion.div>

@@ -41,7 +41,7 @@ async function verifyRecaptcha(token: string) {
 
 export async function POST(req: NextRequest) {
   try {
-    const ip = req.ip || req.headers.get("x-forwarded-for") || "unknown";
+    const ip = req.headers.get("x-forwarded-for") || "unknown";
     
     // 1. Rate Limiting
     if (!checkRateLimit(ip)) {

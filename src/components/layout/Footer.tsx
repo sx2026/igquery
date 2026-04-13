@@ -21,11 +21,11 @@ export default function Footer() {
                 </span>
               </div>
               <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
-                Instagram Search Query Optimizer
+                Instagram Search Query Optimization
               </span>
             </Link>
             <p className="max-w-xs text-center text-sm text-zinc-500 md:text-left dark:text-zinc-500">
-              Smarter Instagram search starts with better queries. Turn vague topics into usable Instagram search queries.
+              Need Instagram search queries help? Optimize vague topics into usable, high-converting search phrases.
             </p>
           </div>
 
@@ -44,8 +44,12 @@ export default function Footer() {
             </div>
             <div className="flex flex-col gap-3">
               <span className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100">Legal</span>
-              <span className="text-sm text-zinc-500 dark:text-zinc-400 cursor-not-allowed">Privacy</span>
-              <span className="text-sm text-zinc-500 dark:text-zinc-400 cursor-not-allowed">Terms</span>
+              <Link href="/privacy" className="text-sm text-zinc-500 hover:text-indigo-600 dark:text-zinc-400 dark:hover:text-indigo-400 transition-colors">
+                Privacy
+              </Link>
+              <Link href="/terms" className="text-sm text-zinc-500 hover:text-indigo-600 dark:text-zinc-400 dark:hover:text-indigo-400 transition-colors">
+                Terms
+              </Link>
             </div>
           </div>
         </div>

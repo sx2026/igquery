@@ -48,6 +48,7 @@ export default function QueryBuilder({ onResult, loading, setLoading, initialSee
 
   const handleSubmit = useCallback(async (e: React.FormEvent) => {
     e.preventDefault();
+    const submitStartedAt = performance.now();
     
     if (!executeRecaptcha) {
       toast.error("reCAPTCHA not yet available.");
@@ -57,15 +58,27 @@ export default function QueryBuilder({ onResult, loading, setLoading, initialSee
     setLoading(true);
 
     try {
+      const recaptchaStartedAt = performance.now();
       const token = await executeRecaptcha("optimize_queries");
+      const recaptchaDuration = performance.now() - recaptchaStartedAt;
       
+      const requestStartedAt = performance.now();
       const response = await fetch("/api/optimize", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...formData, recaptchaToken: token }),
       });
+      const requestDuration = performance.now() - requestStartedAt;
 
       const data = await response.json();
+
+      console.info("[optimize] client timings", {
+        seed: formData.seed,
+        recaptchaMs: Number(recaptchaDuration.toFixed(1)),
+        requestMs: Number(requestDuration.toFixed(1)),
+        totalMs: Number((performance.now() - submitStartedAt).toFixed(1)),
+        ok: response.ok,
+      });
 
       if (!response.ok) {
         throw new Error(data.error || "Failed to optimize queries");
@@ -73,11 +86,6 @@ export default function QueryBuilder({ onResult, loading, setLoading, initialSee
 
       onResult(data);
       toast.success("Queries optimized successfully!");
-      
-      // Smooth scroll to results
-      setTimeout(() => {
-        document.getElementById("results")?.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 100);
 
     } catch (error: unknown) {
       const message = error instanceof Error ? error.message : "An unknown error occurred";

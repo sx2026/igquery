@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import QueryBuilder from "@/components/home/QueryBuilder";
 import SampleChips from "@/components/home/SampleChips";
 import DemoPreview from "@/components/home/DemoPreview";
@@ -19,6 +19,19 @@ export default function HomeClient() {
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState<null | { groups: QueryGroup[] }>(null);
   const [selectedSeed, setSelectedSeed] = useState("");
+  const resultsRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (!results) {
+      return;
+    }
+
+    const frameId = window.requestAnimationFrame(() => {
+      resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    return () => window.cancelAnimationFrame(frameId);
+  }, [results]);
 
   const handleSampleSelect = (seed: string) => {
     setSelectedSeed(seed);
@@ -42,7 +55,7 @@ export default function HomeClient() {
       <SampleChips onSelect={handleSampleSelect} />
 
       {results && (
-        <div id="results" className="pt-12">
+        <div id="results" ref={resultsRef} className="pt-12">
           <div className="mb-8 px-4 text-center">
             <h2 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">Your Optimized Queries</h2>
             <p className="text-zinc-600 dark:text-zinc-400">Copy and use these in the Instagram search bar.</p>

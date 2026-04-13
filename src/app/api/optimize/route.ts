@@ -67,132 +67,102 @@ export async function POST(req: NextRequest) {
       : `Tailored for ${goal}.`;
 
     const systemPrompt = `
-      You are an expert Instagram Search Query Optimizer who thinks like a growth marketer, a power user, and a real Instagram searcher.
+      You are an expert Instagram Search Query Optimizer who thinks like a real Instagram user, not an SEO tool.
 
-Your task is to transform a Seed Keyword into 4 distinct groups of highly usable Instagram search queries.
+Your task is to transform a Seed Keyword into 4 groups of highly usable Instagram search queries.
 
 Return valid JSON only.
 Do not include markdown, comments, explanations, or code fences.
 
 Input parameters:
-- Seed Keyword: ${seed}
-- Search Goal: ${goal || 'Any'}
-- Location: ${location || 'N/A'}
-- Content Type: ${type || 'Any'}
 
-Global requirements:
-- All queries must look like something a real human would realistically type into Instagram search.
-- Prefer short, natural, usable phrases.
-- Avoid robotic, awkward, or overly SEO-like phrasing.
-- Avoid meaningless word stacking.
-- Avoid near-duplicates across groups.
-- Avoid plural/singular-only variations unless they genuinely reflect distinct search behavior.
-- Keep each group meaningfully different in function and intent.
-- Use 2-5 words per query total unless a month/year anchor makes 6 words unavoidable.
-- Prefer clarity and usability over cleverness.
-- Prefer queries that a real user would actually copy and use.
-- When in doubt, choose the more natural and more searchable phrase.
+* Seed Keyword: ${seed}
+* Search Goal: ${goal || 'Any'}
+* Location: ${location || 'N/A'}
+* Content Type: ${type || 'Any'}
 
-Group purity rules:
-- Core Queries must stay broad and foundational.
-- Long-tail Queries must increase specificity, not switch into use-case intent.
-- Goal-based Queries must reflect use-case intent, not just add random modifiers.
-- Recency-Oriented Queries must reflect freshness, not shopping, creator, or local intent unless that expression is truly natural.
+---
 
-Location usage rules:
-- Use Location only when the query would plausibly be searched with a place name by a real user.
-- Do not append Location mechanically.
-- At most 1-2 queries across all groups should include Location unless the Search Goal is explicitly local.
+GLOBAL RULES:
 
-Content Type usage rules:
-- Use Content Type only when it feels native to Instagram search behavior.
-- Do not force the content type into every group.
-- Prefer using Content Type in Goal-based or Recency-Oriented queries when appropriate.
+* All queries MUST feel like something a real person would naturally type into Instagram search.
+* Avoid robotic, keyword-stuffed, or SEO-style phrasing.
+* Each query should feel independently typed, not generated from a template.
+* Avoid repeating obvious patterns like: "inspo", "creators", "brands", "near me" across all groups.
+* Prefer short, natural, slightly messy human phrasing over clean keyword structures.
+* Avoid plural/singular-only variations unless meaningfully different.
+* Avoid filler words or generic expansions.
 
-Time relevance rules:
-- If using a year or month/year anchor, prefer the current year or current month/year context.
-- Never output past years unless the Seed Keyword itself is explicitly historical and the past year is essential to realistic search behavior.
-- Prefer relative freshness phrases like "latest", "this week", "current", or "now" when they sound more natural than a fixed year.
-- Avoid stale or outdated anchors.
+---
 
-Avoid query patterns like:
-- awkward stacking: "local vintage watch creator"
-- weak templating: "trending [seed] creator"
-- unnatural freshness: "vintage new releases"
-- low-value near-duplicates
-- generic filler variants that do not meaningfully change search behavior
+INSTAGRAM-NATIVE LANGUAGE (VERY IMPORTANT):
 
-Group output requirements:
+Prefer real Instagram search behavior, such as:
+
+* routine, vlog, before after, results, review
+* what I use, favorites, daily, night routine
+* aesthetic, cozy, minimal, clean girl
+* haul, setup, transformation
+* "for acne", "for beginners", "small space", etc.
+
+Think:
+→ What would someone type when casually browsing Instagram, not doing research on Google?
+
+---
+
+GROUP REQUIREMENTS:
 
 1. Core Queries
-- Output exactly 3 queries.
-- Requirement: 2-3 words only.
-- Logic: The most stable, broad, foundational search phrases for the topic.
-- These should be the safest starting points.
-- Do NOT include intent modifiers like: inspo, ideas, reels, creator, influencer, shop, store, local, latest, this week.
+
+* 2–4 broad, natural entry queries
+* Should feel like common IG search starting points
+* Avoid awkward truncations
 
 2. Long-tail Queries
-- Output exactly 4 queries.
-- Requirement: 3-5 words.
-- Logic: More specific searches based on niche, era, style, audience, budget, use case, or subcategory.
-- These should narrow the topic by specificity, not mainly by business or creator intent.
-- Avoid making these feel like creator-discovery, local-business, or shopping queries unless clearly justified.
 
-3. Goal-based Queries
-- Output exactly 4 queries.
-- These should be the most usable queries for the selected search goal.
-- The queries should feel actionably different from Core and Long-tail groups.
-- Do not merely add a surface modifier; reflect how a real user would search for that goal on Instagram.
-- If Search Goal is a specific value, all 4 queries must clearly reflect that exact goal.
-- If Search Goal is "Any", output exactly:
-  - 1 inspiration-oriented query
-  - 1 creator-discovery query
-  - 1 shopping/business-oriented query
-  - 1 local-discovery query
-- For Search Goal = "Any", the 4 queries should represent different common intents, but each must still sound like a realistic Instagram search.
-- Do not force a local or business query if the Seed Keyword does not naturally support it.
-- When needed, prefer broader but still distinct intent variations over awkward niche combinations.
-- Description target: ${currentGoalDesc}
+* 3–5 specific, niche, or scenario-based queries
+* Include real-life use cases (e.g., for beginners, small space, acne, budget, etc.)
+* Should feel like intent-rich but still casual
+
+3. Intent Mix Queries
+
+* 4 queries covering different intents:
+
+  * inspiration / browsing
+  * people / creators
+  * products / tools / brands
+  * local / discovery (ONLY if it feels natural for the topic)
+* Do NOT force all four if unnatural (especially "near me")
 
 4. Recency-Oriented Queries
-- Output exactly 3 queries.
-- These should help users explore newer, more current, or more recently framed content angles.
-- Use freshness signals only when they sound natural for the seed.
-- Prefer natural modifiers such as: latest, this week, current, now, trend, finds, reels.
-- Use month/year anchors only when they feel natural and current.
-- Avoid outdated anchors or stale years.
-- Use niche-specific freshness words like "pickup" or "market update" only if they genuinely fit the topic.
-- Avoid semantic conflicts.
 
-Output JSON schema:
+* 2–3 queries reflecting freshness or trends
+* Prefer natural recency signals:
+
+  * "this week", "recent", "viral", "trending", "2025"
+* Avoid generic or robotic words like "latest" unless it feels natural
+
+---
+
+FINAL QUALITY CHECK:
+
+Before returning:
+
+* Ask yourself: would a real human actually type this into Instagram?
+* Remove anything that feels like SEO or a generated pattern
+* Ensure variety across queries (no structural repetition)
+
+---
+
+OUTPUT FORMAT:
+
 {
-  "groups": [
-    {
-      "type": "core",
-      "title": "Core Queries",
-      "description": "Broad but foundational search phrases.",
-      "queries": []
-    },
-    {
-      "type": "long_tail",
-      "title": "Long-tail Queries",
-      "description": "Deep dive into specific niches.",
-      "queries": []
-    },
-    {
-      "type": "goal_based",
-      "title": "${currentGoalTitle}",
-      "description": "${currentGoalDesc}",
-      "queries": []
-    },
-    {
-      "type": "recency",
-      "title": "Recency-Oriented Queries",
-      "description": "Fresh signals for current trends.",
-      "queries": []
-    }
-  ]
+"core": [...],
+"long_tail": [...],
+"intent_mix": [...],
+"recency": [...]
 }
+
     `;
 
     // 4. LLM API Call with Retry Logic
@@ -209,6 +179,9 @@ Output JSON schema:
     const MAX_ATTEMPTS = 3;
 
     while (attempts < MAX_ATTEMPTS) {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 60000); // 60s timeout
+
       try {
         attempts++;
         const llmResponse = await fetch("https://api.aimlapi.com/v1/chat/completions", {
@@ -223,9 +196,14 @@ Output JSON schema:
               { role: "system", content: "You output only valid JSON." },
               { role: "user", content: systemPrompt }
             ],
+            // Note: gpt-4o doesn't always strictly respect response_format if prompt is too complex,
+            // but we keep it for consistency.
             response_format: { type: "json_object" }
           }),
+          signal: controller.signal,
         });
+
+        clearTimeout(timeoutId);
 
         if (!llmResponse.ok) {
           const errorText = await llmResponse.text();
@@ -234,11 +212,51 @@ Output JSON schema:
 
         const llmResult = await llmResponse.json();
         const content = llmResult.choices[0].message.content;
-        return NextResponse.json(JSON.parse(content));
+        const rawJson = JSON.parse(content);
+
+        // 5. Schema Adaptation Layer
+        // Transform the user's new flat schema back to the UI-expected groups array
+        const adaptedResult = {
+          groups: [
+            {
+              type: "core",
+              title: "Core Queries",
+              description: "Broad but foundational search phrases.",
+              queries: rawJson.core || []
+            },
+            {
+              type: "long_tail",
+              title: "Long-tail Queries",
+              description: "Deep dive into specific niches.",
+              queries: rawJson.long_tail || []
+            },
+            {
+              type: "intent_mix",
+              title: isAnyGoal ? "Intent Mix Queries" : "Goal-based Queries",
+              description: currentGoalDesc,
+              queries: rawJson.intent_mix || rawJson.goal_based || []
+            },
+            {
+              type: "recency",
+              title: "Recency-Oriented Queries",
+              description: "Fresh signals for current trends.",
+              queries: rawJson.recency || []
+            }
+          ]
+        };
+
+        return NextResponse.json(adaptedResult);
 
       } catch (err: any) {
+        clearTimeout(timeoutId);
         lastError = err;
-        console.warn(`Attempt ${attempts} failed:`, err.message);
+        
+        const errorMessage = err.name === 'AbortError' 
+          ? `Request timed out after 60 seconds (Attempt ${attempts})`
+          : err.message;
+          
+        console.warn(`Attempt ${attempts} failed:`, errorMessage);
+
         if (attempts < MAX_ATTEMPTS) {
           // Exponential backoff: 500ms, 1000ms
           await new Promise(resolve => setTimeout(resolve, Math.pow(2, attempts - 1) * 500));

@@ -39,7 +39,7 @@ export default function LandingSections() {
               key={item.title}
               className="relative rounded-2xl border border-zinc-200 bg-white p-8 dark:border-zinc-800 dark:bg-zinc-900/50"
             >
-              <span className="text-5xl font-black text-zinc-100 dark:text-zinc-800/50 absolute top-4 right-6 select-none">
+              <span className="absolute top-4 right-6 select-none text-5xl font-black text-zinc-300 dark:text-zinc-700">
                 {item.step}
               </span>
               <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600 dark:bg-indigo-500/10 dark:text-indigo-400">
@@ -100,8 +100,8 @@ export default function LandingSections() {
                 </div>
                 <h3 className="mb-1 font-bold text-zinc-900 dark:text-zinc-50">{item.title}</h3>
                 <p className="mb-4 text-sm text-zinc-600 dark:text-zinc-400">{item.desc}</p>
-                <div className="flex items-center gap-2 rounded-lg bg-zinc-50 p-2.5 text-xs font-mono text-zinc-500 dark:bg-zinc-950 dark:text-zinc-500">
-                  <span className="font-bold text-indigo-500 shrink-0">Example Query:</span>
+                <div className="flex items-center gap-2 rounded-lg bg-zinc-100 p-2.5 text-xs font-mono text-zinc-700 dark:bg-zinc-950 dark:text-zinc-300">
+                  <span className="shrink-0 font-bold text-indigo-700 dark:text-indigo-300">Example Query:</span>
                   <span className="truncate">{item.sample}</span>
                 </div>
               </div>

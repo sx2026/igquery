@@ -7,11 +7,11 @@ export default function DemoPreview() {
   return (
     <div className="mx-auto mt-12 max-w-xl overflow-hidden rounded-2xl border border-zinc-200 bg-white/50 backdrop-blur-sm dark:border-zinc-800 dark:bg-zinc-900/30">
       <div className="bg-zinc-100/50 px-4 py-3 dark:bg-zinc-800/50">
-        <div className="flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-zinc-500">
+        <div className="flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-zinc-700 dark:text-zinc-300">
           <span>Demo Result Preview</span>
           <div className="text-right">
-            <span className="text-indigo-500 block">Static Example</span>
-            <span className="block text-[9px] font-medium lowercase text-zinc-500">See what a generated result looks like</span>
+            <span className="block text-indigo-700 dark:text-indigo-300">Static Example</span>
+            <span className="block text-[9px] font-medium lowercase text-zinc-600 dark:text-zinc-300">See what a generated result looks like</span>
           </div>
         </div>
       </div>
@@ -30,10 +30,10 @@ export default function DemoPreview() {
 
         <div className="space-y-4">
           <div>
-            <p className="mb-2 text-[10px] font-bold uppercase tracking-widest text-zinc-500">Core Queries</p>
+            <p className="mb-2 text-[10px] font-bold uppercase tracking-widest text-zinc-700 dark:text-zinc-300">Core Queries</p>
             <div className="flex flex-wrap gap-2">
               {coreQueries.map((q) => (
-                <span key={q} className="rounded-full border border-zinc-200 bg-white px-3 py-1 text-xs font-medium text-zinc-600 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-400">
+                <span key={q} className="rounded-full border border-zinc-200 bg-white px-3 py-1 text-xs font-medium text-zinc-700 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-200">
                   {q}
                 </span>
               ))}
@@ -41,10 +41,10 @@ export default function DemoPreview() {
           </div>
 
           <div>
-            <p className="mb-2 text-[10px] font-bold uppercase tracking-widest text-zinc-500">Long-tail Queries</p>
+            <p className="mb-2 text-[10px] font-bold uppercase tracking-widest text-zinc-700 dark:text-zinc-300">Long-tail Queries</p>
             <div className="flex flex-wrap gap-2">
               {longTailQueries.map((q) => (
-                <span key={q} className="rounded-full border border-indigo-100 bg-indigo-50/50 px-3 py-1 text-xs font-medium text-indigo-600 dark:border-indigo-900/30 dark:bg-indigo-900/20 dark:text-indigo-400">
+                <span key={q} className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-700 dark:border-indigo-900/30 dark:bg-indigo-900/20 dark:text-indigo-300">
                   {q}
                 </span>
               ))}

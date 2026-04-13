@@ -17,8 +17,15 @@ const GOAL_OPTIONS = [
 
 const TYPE_OPTIONS = ["Any", "Reels", "Posts", "Accounts", "Places"];
 
+interface QueryGroup {
+  type: string;
+  title: string;
+  description: string;
+  queries: string[];
+}
+
 interface QueryBuilderProps {
-  onResult: (data: { groups: any[] }) => void;
+  onResult: (data: { groups: QueryGroup[] }) => void;
   loading: boolean;
   setLoading: (loading: boolean) => void;
   initialSeed?: string;
@@ -82,7 +89,7 @@ export default function QueryBuilder({ onResult, loading, setLoading, initialSee
   }, [executeRecaptcha, formData, onResult, setLoading]);
 
   return (
-    <section className="px-4 py-8">
+    <section id="query-builder" className="scroll-mt-24 px-4 py-8">
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

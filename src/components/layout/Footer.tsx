@@ -1,7 +1,5 @@
-"use client";
-
+import Image from "next/image";
 import Link from "next/link";
-import { Rocket } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -13,14 +11,18 @@ export default function Footer() {
           <div className="flex flex-col items-center gap-4 md:items-start">
             <Link href="/" className="flex flex-col items-center gap-2 md:items-start group">
               <div className="flex items-center gap-2">
-                <div className="flex h-6 w-6 items-center justify-center rounded bg-indigo-600">
-                  <Rocket className="h-4 w-4 text-white" />
-                </div>
+                <Image
+                  src="/brand/logo.webp"
+                  alt="igquery logo"
+                  width={24}
+                  height={24}
+                  className="h-6 w-6 rounded"
+                />
                 <span className="text-lg font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
                   igquery<span className="text-indigo-600">.com</span>
                 </span>
               </div>
-              <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
+              <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
                 Instagram Search Query Optimization
               </span>
             </Link>
@@ -59,7 +61,7 @@ export default function Footer() {
             &copy; {currentYear} igquery.com. All rights reserved.
           </p>
           <div className="mt-4 flex gap-6 md:mt-0">
-            <span className="text-xs text-zinc-400">Not affiliated with Instagram or Meta.</span>
+            <span className="text-xs text-zinc-500 dark:text-zinc-400">Not affiliated with Instagram or Meta.</span>
           </div>
         </div>
       </div>

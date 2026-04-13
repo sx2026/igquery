@@ -1,8 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, X, Rocket } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const NAV_LINKS = [
   { name: "How it works", href: "#how-it-works" },
@@ -18,9 +19,14 @@ export default function Header() {
       <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 transition-opacity hover:opacity-90">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-indigo-600">
-            <Rocket className="h-5 w-5 text-white" />
-          </div>
+          <Image
+            src="/brand/logo.webp"
+            alt="igquery logo"
+            width={32}
+            height={32}
+            className="h-8 w-8 rounded-lg"
+            priority
+          />
           <span className="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
             igquery<span className="text-indigo-600">.com</span>
           </span>
@@ -38,7 +44,7 @@ export default function Header() {
             </Link>
           ))}
           <Link
-            href="/"
+            href="#query-builder"
             className="rounded-full bg-indigo-600 px-5 py-2 text-sm font-medium text-white transition-all hover:bg-indigo-700 hover:shadow-lg hover:shadow-indigo-500/20 active:scale-95"
           >
             Get Started
@@ -70,7 +76,7 @@ export default function Header() {
               </Link>
             ))}
             <Link
-              href="/"
+              href="#query-builder"
               className="mt-2 w-full rounded-md bg-indigo-600 py-3 text-center text-sm font-medium text-white shadow-lg shadow-indigo-500/20"
               onClick={() => setIsMenuOpen(false)}
             >

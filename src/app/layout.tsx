@@ -25,12 +25,21 @@ export const metadata: Metadata = {
     title: "Instagram Search Query Optimization | igquery.com",
     description: "Free tool for Instagram search queries optimization. Generate smarter queries instantly.",
     siteName: "igquery.com",
+    images: [
+      {
+        url: "/brand/og-1200x630.png",
+        width: 1200,
+        height: 630,
+        alt: "igquery.com preview image",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Instagram Search Query Optimization | igquery.com",
     description: "Smarter Instagram search starts here.",
     creator: "@igquery",
+    images: ["/brand/og-1200x630.png"],
   },
   robots: {
     index: true,

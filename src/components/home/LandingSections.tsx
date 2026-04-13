@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { Search, Target, CheckCircle2, MapPin, Hash, Users, Activity } from "lucide-react";
 
 export default function LandingSections() {
@@ -37,13 +34,9 @@ export default function LandingSections() {
               desc: "Receive structured groups of queries built specifically for search success.",
               icon: CheckCircle2,
             },
-          ].map((item, idx) => (
-            <motion.div
+          ].map((item) => (
+            <div
               key={item.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
               className="relative rounded-2xl border border-zinc-200 bg-white p-8 dark:border-zinc-800 dark:bg-zinc-900/50"
             >
               <span className="text-5xl font-black text-zinc-100 dark:text-zinc-800/50 absolute top-4 right-6 select-none">
@@ -54,7 +47,7 @@ export default function LandingSections() {
               </div>
               <h3 className="mb-2 text-xl font-bold text-zinc-900 dark:text-zinc-50">{item.title}</h3>
               <p className="text-zinc-600 dark:text-zinc-400">{item.desc}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </section>
@@ -97,13 +90,9 @@ export default function LandingSections() {
                 icon: Hash,
                 sample: "handcrafted jewelry brand",
               },
-            ].map((item, idx) => (
-              <motion.div
+            ].map((item) => (
+              <div
                 key={item.title}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
                 className="group rounded-2xl bg-white p-6 shadow-sm ring-1 ring-zinc-200 transition-all hover:shadow-md dark:bg-zinc-900 dark:ring-zinc-800"
               >
                 <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-zinc-100 text-zinc-600 transition-colors group-hover:bg-indigo-600 group-hover:text-white dark:bg-zinc-800 dark:text-zinc-400">
@@ -115,7 +104,7 @@ export default function LandingSections() {
                   <span className="font-bold text-indigo-500 shrink-0">Example Query:</span>
                   <span className="truncate">{item.sample}</span>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>

@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 // Simple in-memory rate limiting for MVP
 // In production, use Redis or a similar store
 const rateLimitMap = new Map<string, { count: number; lastReset: number }>();
-const LIMIT = 30;
+const LIMIT = 24;
 const WINDOW = 24 * 60 * 60 * 1000; // 24 hours
 
 function checkRateLimit(ip: string): boolean {

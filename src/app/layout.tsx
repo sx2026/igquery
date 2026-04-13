@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Providers } from "@/components/Providers";
+import { DeferredAnalytics } from "@/components/DeferredAnalytics";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -78,9 +78,8 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col bg-white dark:bg-zinc-950">
-        <Providers>
-          {children}
-        </Providers>
+        <DeferredAnalytics />
+        {children}
       </body>
     </html>
   );

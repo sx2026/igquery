@@ -1,7 +1,6 @@
 "use client";
 
 import { Search, MapPin, Target, Layout, Rocket, Loader2 } from "lucide-react";
-import { motion } from "framer-motion";
 import { useState, useCallback, useEffect } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { toast } from "sonner";
@@ -90,11 +89,9 @@ export default function QueryBuilder({ onResult, loading, setLoading, initialSee
 
   return (
     <section id="query-builder" className="scroll-mt-24 px-4 py-8">
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
+      <div
         className="mx-auto max-w-2xl rounded-2xl border border-zinc-200 bg-white p-6 shadow-xl shadow-zinc-200/50 dark:border-zinc-800 dark:bg-zinc-900 dark:shadow-none"
+        style={{ animation: "fadeUp 0.5s ease-out 0.2s both" }}
       >
         <form className="space-y-6" onSubmit={handleSubmit}>
           {/* Seed Keyword */}
@@ -189,7 +186,7 @@ export default function QueryBuilder({ onResult, loading, setLoading, initialSee
             <div className="absolute inset-0 z-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-shimmer" />
           </button>
         </form>
-      </motion.div>
+      </div>
     </section>
   );
 }

@@ -1,11 +1,10 @@
-import dynamic from "next/dynamic";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/home/Hero";
 import HomeClient from "@/components/home/HomeClient";
 import LandingSections from "@/components/home/LandingSections";
-
-const FAQ = dynamic(() => import("@/components/home/FAQ"));
+import FAQ from "@/components/home/FAQ";
+import { HomeProviders } from "@/components/home/HomeProviders";
 
 export default function Home() {
   return (
@@ -14,7 +13,9 @@ export default function Home() {
 
       <main className="flex-grow">
         <Hero />
-        <HomeClient />
+        <HomeProviders>
+          <HomeClient />
+        </HomeProviders>
         <LandingSections />
         <FAQ />
       </main>

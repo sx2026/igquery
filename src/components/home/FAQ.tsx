@@ -1,8 +1,4 @@
-"use client";
-
 import { Plus, Minus } from "lucide-react";
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 
 const FAQS = [
   {
@@ -24,14 +20,6 @@ const FAQS = [
 ];
 
 export default function FAQ() {
-  const [openIndices, setOpenIndices] = useState<number[]>([0]);
-
-  const toggleIndex = (idx: number) => {
-    setOpenIndices((prev) =>
-      prev.includes(idx) ? prev.filter((i) => i !== idx) : [...prev, idx]
-    );
-  };
-
   return (
     <section id="faq" className="container mx-auto max-w-3xl px-4 py-24 sm:px-6">
       <div className="mb-12 text-center">
@@ -42,38 +30,23 @@ export default function FAQ() {
 
       <div className="space-y-4">
         {FAQS.map((faq, idx) => {
-          const isOpen = openIndices.includes(idx);
           return (
-            <div 
-              key={idx} 
-              className="rounded-2xl border border-zinc-200 bg-white overflow-hidden transition-all dark:border-zinc-800 dark:bg-zinc-900/50"
+            <details
+              key={faq.question}
+              open={idx === 0}
+              className="group rounded-2xl border border-zinc-200 bg-white overflow-hidden transition-all open:shadow-sm dark:border-zinc-800 dark:bg-zinc-900/50"
             >
-              <button
-                onClick={() => toggleIndex(idx)}
-                className="flex w-full items-center justify-between p-6 text-left outline-none"
-              >
+              <summary className="flex cursor-pointer list-none items-center justify-between p-6 text-left outline-none [&::-webkit-details-marker]:hidden">
                 <span className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">{faq.question}</span>
-                {isOpen ? (
-                  <Minus className="h-5 w-5 text-indigo-500" />
-                ) : (
-                  <Plus className="h-5 w-5 text-zinc-400" />
-                )}
-              </button>
-              <AnimatePresence>
-                {isOpen && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                  >
-                    <div className="border-t border-zinc-100 p-6 text-zinc-600 dark:border-zinc-800 dark:text-zinc-400">
-                      {faq.answer}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+                <span className="relative ml-4 h-5 w-5 shrink-0">
+                  <Plus className="absolute inset-0 h-5 w-5 text-zinc-400 transition-opacity group-open:opacity-0" />
+                  <Minus className="absolute inset-0 h-5 w-5 text-indigo-500 opacity-0 transition-opacity group-open:opacity-100" />
+                </span>
+              </summary>
+              <div className="border-t border-zinc-100 p-6 text-zinc-600 dark:border-zinc-800 dark:text-zinc-400">
+                {faq.answer}
+              </div>
+            </details>
           );
         })}
       </div>

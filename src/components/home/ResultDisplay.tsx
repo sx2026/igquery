@@ -1,9 +1,10 @@
 "use client";
 
 import { motion, useAnimation } from "framer-motion";
-import { Copy, Check, Share2 } from "lucide-react";
+import { Copy, Check, Share2, Sparkles } from "lucide-react";
 import { useState, useEffect } from "react";
 import { toast } from "sonner";
+import { trackEvent } from "@/lib/analytics";
 
 interface QueryGroup {
   type: string;
@@ -14,9 +15,11 @@ interface QueryGroup {
 
 interface ResultDisplayProps {
   groups: QueryGroup[];
+  relatedSearches?: string[];
+  onRelatedSearch?: (term: string) => void;
 }
 
-export default function ResultDisplay({ groups }: ResultDisplayProps) {
+export default function ResultDisplay({ groups, relatedSearches, onRelatedSearch }: ResultDisplayProps) {
   const [copiedIndex, setCopiedIndex] = useState<string | null>(null);
   const highlightControls = useAnimation();
 
@@ -43,6 +46,17 @@ export default function ResultDisplay({ groups }: ResultDisplayProps) {
     setCopiedIndex(id);
     toast.success("All queries copied!");
     setTimeout(() => setCopiedIndex(null), 2000);
+    trackEvent("copy_group_clicked", { group_id: id });
+  };
+
+  const handleRelatedClick = (term: string) => {
+    trackEvent("related_search_clicked", {
+      related_term: term,
+      triggered_new_search: true
+    });
+    if (onRelatedSearch) {
+      onRelatedSearch(term);
+    }
   };
 
   const container = {
@@ -116,6 +130,30 @@ export default function ResultDisplay({ groups }: ResultDisplayProps) {
           </div>
         </motion.div>
       ))}
+
+      {/* Explore Related Searches (if available) */}
+      {relatedSearches && relatedSearches.length > 0 && (
+        <motion.div
+          variants={item}
+          className="col-span-1 md:col-span-2 mt-4 rounded-2xl border border-indigo-100 bg-indigo-50/50 p-6 dark:border-indigo-500/20 dark:bg-indigo-500/5 text-center sm:text-left"
+        >
+          <div className="mb-4 flex items-center justify-center sm:justify-start gap-2">
+            <Sparkles className="h-5 w-5 text-indigo-500" />
+            <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-50">Explore Related Searches</h3>
+          </div>
+          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3">
+            {relatedSearches.map((term, idx) => (
+              <button
+                key={idx}
+                onClick={() => handleRelatedClick(term)}
+                className="rounded-full bg-white px-4 py-2 text-sm font-medium text-indigo-600 shadow-sm ring-1 ring-zinc-200 transition-all hover:bg-indigo-600 hover:text-white hover:ring-indigo-600 active:scale-95 dark:bg-zinc-800 dark:text-indigo-300 dark:ring-zinc-700 dark:hover:bg-indigo-500 dark:hover:text-white"
+              >
+                {term}
+              </button>
+            ))}
+          </div>
+        </motion.div>
+      )}
     </motion.div>
   );
 }

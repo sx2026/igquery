@@ -2,20 +2,52 @@ import { Plus, Minus } from "lucide-react";
 
 const FAQS = [
   {
-    question: "What is an Instagram search query?",
-    answer: "An Instagram search query is the specific combination of keywords you type into the Instagram search bar. While most people use single words, professional queries include modifiers like 'inspo', 'creator', or location tags to reveal more specific and high-quality results."
+    question: "What is Instagram search query optimization?",
+    answer: "Instagram search query optimization is the practice of strategically structuring your searches to find highly specific, relevant content instead of generic posts. By using modifiers, niche terms, and specific intents, you can bypass Instagram's broad algorithmic results to discover precisely what you need."
   },
   {
-    question: "How does this tool improve my search?",
-    answer: "IGQuery uses AI to expand your initial seed keyword into four specialized categories: Core, Long-tail, Intent-based, and Recency-oriented. This expansion helps you discover niche content and accounts that aren't surfaced by broad, generic searches."
+    question: "How can I improve my Instagram search queries?",
+    answer: "To improve your Instagram search queries, move beyond single words. Add context like locations, content formats (e.g., 'reels', 'ideas'), audience intents (e.g., 'for beginners', 'budget'), or recency signals (e.g., 'this week', the current year). This signals exactly what you're looking for to Instagram's search engine."
   },
   {
-    question: "Can I use these queries for hashtags as well?",
-    answer: "You can reuse some of these queries for hashtag inspiration, but this tool is primarily designed for search optimization rather than hashtag generation. It helps surface content that isn't always easily reachable through hashtags alone."
+    question: "Can this tool help with Instagram search queries optimization?",
+    answer: "Yes! IGQuery is specifically built to automate the optimization process. When you enter a basic seed keyword, our AI generates multiple structured groups of advanced queries (Core, Long-tail, Intent-based, and Recency-oriented) that are ready to be used on Instagram."
   },
   {
-    question: "Do you fetch live Instagram data?",
-    answer: "No. IGQuery does not fetch live Instagram results directly. It helps you generate better search queries that you can use on Instagram yourself to find precisely what you're looking for."
+    question: "How do I get help with Instagram search queries?",
+    answer: "If you're stuck getting generic search results, you can use our tool to instantly generate better search terms. You can also explore our guidance pages for tips, methodology, and specialized examples covering different topics like creator discovery or competitor research."
+  },
+  {
+    question: "What is the difference between hashtags and Instagram search queries?",
+    answer: "Hashtags are specific tags creators add to their posts (like #minimalistdecor). Search queries are the phrases you type into the search bar. Modern Instagram relies heavily on keyword-based semantic search, meaning a well-structured query can often find highly relevant content even if the creator didn't use specific hashtags."
+  },
+  {
+    question: "Can I use this tool for creator discovery?",
+    answer: "Absolutely. By selecting 'Creator Discovery' as your search goal, the tool optimizes your queries to include terms that typically surface influencer profiles, content creators, and professional portfolios rather than just random lifestyle posts."
+  },
+  {
+    question: "How does it help with competitor research?",
+    answer: "For competitor research, we optimize your queries to locate brands, studios, product launches, and business accounts operating within your niche, allowing you to easily survey how competitors are presenting themselves on the platform."
+  },
+  {
+    question: "Is this effective for local discovery?",
+    answer: "Yes, local discovery is one of the most popular uses for search query optimization. By combining a topic with a location and specific modifier (e.g., 'matcha cafe new york review'), you're much more likely to find localized, authentic recommendations."
+  },
+  {
+    question: "Can I use Instagram search query optimization for competitor research?",
+    answer: "Yes. Simply switch the 'Search Goal' to Competitor Research. Your seed keyword will be appended with specific business modifiers like 'brand', 'startup', or 'launch', helping you analyze how related brands position themselves visually."
+  },
+  {
+    question: "Can brands use optimized Instagram search queries for market research?",
+    answer: "Absolutely. By analyzing optimized long-tail queries and intent-based searches, brands can quickly find their target audience's pain points, trending aesthetic formats, and common product alternatives directly from real user content."
+  },
+  {
+    question: "What are examples of strong Instagram search modifiers?",
+    answer: "Strong modifiers add intent. For content inspiration: 'aesthetic', 'routine', 'before after'. For creators: 'influencer', 'instructor', 'creator'. For intent to buy: 'review', 'shopping haul', 'affordable'."
+  },
+  {
+    question: "Do you fetch live Instagram data directly?",
+    answer: "No, IGQuery operates as an optimization engine, not a scraper. It structures and enhances the text of your queries. You simply copy the optimized queries and paste them directly into your Instagram app to see the native results safely."
   }
 ];
 

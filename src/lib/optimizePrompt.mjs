@@ -108,6 +108,13 @@ GROUP REQUIREMENTS:
 * Never use a year older than ${previousYear}. Prefer ${currentYear} when a year makes sense.
 * Do not pair "viral" or "trending" with overly abstract phrases. The recency query should still look like something searchable.
 
+5. Related Searches
+
+* 3-5 very short related search terms or adjacent niches.
+* For example, if the user searched for "clean girl makeup", related searches could be "dewy makeup look", "clean makeup routine", "natural glowy makeup".
+* These should be formatted simply as brief terms that a user could click to trigger a new search. They should not look like full phrases, but rather alternative seed keywords.
+* CRITICAL: These must be realistic "Next Logical Searches". Do not output phrases that are only vaguely related or abstract trending aesthetics (e.g. do not output "girl dinner aesthetic" from a makeup search). They must feel like direct continuations of the same user intent.
+
 ---
 
 LOCAL DISCOVERY RULE:
@@ -139,7 +146,8 @@ OUTPUT FORMAT:
 "core": [...],
 "long_tail": [...],
 "intent_mix": [...],
-"recency": [...]
+"recency": [...],
+"related_searches": [...]
 }
 
     `;

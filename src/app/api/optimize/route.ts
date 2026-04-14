@@ -8,7 +8,7 @@ const OPTIMIZE_MODEL = "anthropic/claude-haiku-4.5";
 // Simple in-memory rate limiting for MVP
 // In production, use Redis or a similar store
 const rateLimitMap = new Map<string, { count: number; lastReset: number }>();
-const LIMIT = 24;
+const LIMIT = 8;
 const WINDOW = 24 * 60 * 60 * 1000; // 24 hours
 
 function checkRateLimit(ip: string): boolean {
@@ -134,7 +134,7 @@ export async function POST(req: NextRequest) {
           },
           {
             type: "intent_mix",
-            title: isAnyGoal ? "Intent Mix Queries" : "Goal-based Queries",
+            title: isAnyGoal ? "Intent Mix Queries" : "Intent-Based Queries",
             description: currentGoalDesc,
             queries: rawJson.intent_mix || rawJson.goal_based || []
           },
@@ -144,7 +144,8 @@ export async function POST(req: NextRequest) {
             description: "Fresh signals for current trends.",
             queries: rawJson.recency || []
           }
-        ]
+        ],
+        related_searches: rawJson.related_searches || []
       };
 
       console.info("[optimize] request completed", {

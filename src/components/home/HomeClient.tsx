@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import QueryBuilder from "@/components/home/QueryBuilder";
 import SampleChips from "@/components/home/SampleChips";
 import DemoPreview from "@/components/home/DemoPreview";
+import { trackEvent } from "@/lib/analytics";
 
 interface QueryGroup {
   type: string;
@@ -17,9 +18,15 @@ const ResultDisplay = dynamic(() => import("@/components/home/ResultDisplay"));
 
 export default function HomeClient() {
   const [loading, setLoading] = useState(false);
-  const [results, setResults] = useState<null | { groups: QueryGroup[] }>(null);
+  const [results, setResults] = useState<null | { groups: QueryGroup[]; related_searches?: string[] }>(null);
   const [selectedSeed, setSelectedSeed] = useState("");
+  const [autoSubmitTrigger, setAutoSubmitTrigger] = useState(0);
+  const [formKey, setFormKey] = useState(0);
   const resultsRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    trackEvent("homepage_view");
+  }, []);
 
   useEffect(() => {
     if (!results) {
@@ -40,16 +47,24 @@ export default function HomeClient() {
   const handleReset = () => {
     setResults(null);
     setSelectedSeed("");
+    setFormKey((prev) => prev + 1);
     window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleRelatedSearch = (term: string) => {
+    setSelectedSeed(term);
+    setAutoSubmitTrigger((prev) => prev + 1);
   };
 
   return (
     <div className="container mx-auto max-w-4xl pb-16">
       <QueryBuilder
+        key={formKey}
         onResult={setResults}
         loading={loading}
         setLoading={setLoading}
         initialSeed={selectedSeed}
+        autoSubmitTrigger={autoSubmitTrigger}
       />
       <DemoPreview />
       <SampleChips onSelect={handleSampleSelect} />
@@ -57,10 +72,14 @@ export default function HomeClient() {
       {results && (
         <div id="results" ref={resultsRef} className="pt-12">
           <div className="mb-8 px-4 text-center">
-            <h2 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">Your Optimized Queries</h2>
-            <p className="text-zinc-600 dark:text-zinc-400">Copy and use these in the Instagram search bar.</p>
+            <h2 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">Your Optimized Instagram Search Queries</h2>
+            <p className="text-zinc-600 dark:text-zinc-400">Copy and use these optimized Instagram search queries in the Instagram search bar.</p>
           </div>
-          <ResultDisplay groups={results.groups} />
+          <ResultDisplay 
+            groups={results.groups} 
+            relatedSearches={results.related_searches}
+            onRelatedSearch={handleRelatedSearch} 
+          />
 
           <div className="mt-12 flex flex-col items-center justify-center gap-4 px-4 sm:flex-row">
             <button

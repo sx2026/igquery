@@ -4,6 +4,7 @@ import { Search, MapPin, Target, Layout, Rocket, Loader2 } from "lucide-react";
 import { useState, useCallback, useEffect } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { toast } from "sonner";
+import { trackEvent } from "@/lib/analytics";
 
 const GOAL_OPTIONS = [
   "Any",
@@ -24,13 +25,14 @@ interface QueryGroup {
 }
 
 interface QueryBuilderProps {
-  onResult: (data: { groups: QueryGroup[] }) => void;
+  onResult: (data: { groups: QueryGroup[]; related_searches?: string[] }) => void;
   loading: boolean;
   setLoading: (loading: boolean) => void;
   initialSeed?: string;
+  autoSubmitTrigger?: number;
 }
 
-export default function QueryBuilder({ onResult, loading, setLoading, initialSeed }: QueryBuilderProps) {
+export default function QueryBuilder({ onResult, loading, setLoading, initialSeed, autoSubmitTrigger }: QueryBuilderProps) {
   const [formData, setFormData] = useState({
     seed: "",
     goal: "Any",
@@ -46,10 +48,7 @@ export default function QueryBuilder({ onResult, loading, setLoading, initialSee
     }
   }, [initialSeed]);
 
-  const handleSubmit = useCallback(async (e: React.FormEvent) => {
-    e.preventDefault();
-    const submitStartedAt = performance.now();
-    
+  const performSearch = useCallback(async (currentFormData: typeof formData) => {
     if (!executeRecaptcha) {
       toast.error("reCAPTCHA not yet available.");
       return;
@@ -58,34 +57,31 @@ export default function QueryBuilder({ onResult, loading, setLoading, initialSee
     setLoading(true);
 
     try {
-      const recaptchaStartedAt = performance.now();
       const token = await executeRecaptcha("optimize_queries");
-      const recaptchaDuration = performance.now() - recaptchaStartedAt;
       
-      const requestStartedAt = performance.now();
       const response = await fetch("/api/optimize", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...formData, recaptchaToken: token }),
+        body: JSON.stringify({ ...currentFormData, recaptchaToken: token }),
       });
-      const requestDuration = performance.now() - requestStartedAt;
 
       const data = await response.json();
 
-      console.info("[optimize] client timings", {
-        seed: formData.seed,
-        recaptchaMs: Number(recaptchaDuration.toFixed(1)),
-        requestMs: Number(requestDuration.toFixed(1)),
-        totalMs: Number((performance.now() - submitStartedAt).toFixed(1)),
-        ok: response.ok,
-      });
-
       if (!response.ok) {
+        if (response.status === 429) {
+          trackEvent("limit_reached");
+        }
         throw new Error(data.error || "Failed to optimize queries");
       }
 
       onResult(data);
       toast.success("Queries optimized successfully!");
+      
+      trackEvent("query_submitted", {
+        seed: currentFormData.seed,
+        goal: currentFormData.goal,
+        type: currentFormData.type,
+      });
 
     } catch (error: unknown) {
       const message = error instanceof Error ? error.message : "An unknown error occurred";
@@ -93,7 +89,21 @@ export default function QueryBuilder({ onResult, loading, setLoading, initialSee
     } finally {
       setLoading(false);
     }
-  }, [executeRecaptcha, formData, onResult, setLoading]);
+  }, [executeRecaptcha, onResult, setLoading]);
+
+  useEffect(() => {
+    if (autoSubmitTrigger && initialSeed) {
+      const newFormData = { ...formData, seed: initialSeed };
+      setFormData(newFormData);
+      performSearch(newFormData);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [autoSubmitTrigger]);
+
+  const handleSubmit = useCallback((e: React.FormEvent) => {
+    e.preventDefault();
+    performSearch(formData);
+  }, [formData, performSearch]);
 
   return (
     <section id="query-builder" className="scroll-mt-24 px-4 py-8">

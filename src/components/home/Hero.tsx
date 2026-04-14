@@ -6,14 +6,14 @@ export default function Hero() {
 
       <div className="mx-auto max-w-4xl">
         <h1 className="text-4xl font-extrabold tracking-tight text-zinc-900 sm:text-6xl dark:text-zinc-50 leading-[1.15]">
-          Turn vague ideas into <br className="hidden sm:block" />
           <span className="bg-gradient-to-r from-indigo-600 to-indigo-400 bg-clip-text text-transparent">
-            smarter Instagram search queries
+            Instagram Search Query Optimization
           </span>
+          <br className="hidden sm:block" />
+          for Better Discovery
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-lg text-zinc-600 dark:text-zinc-400 sm:text-xl leading-relaxed">
-          Your free tool for <strong>Instagram search query optimization</strong>. Generating smart queries to help with content inspiration, 
-          creator discovery, competitor research, and local search.
+          Need expert <strong>Instagram search queries help</strong>? Our free tool helps creators and researchers turn vague ideas into smarter <strong>Instagram search queries</strong> to discover exactly what you need.
         </p>
       </div>
     </section>

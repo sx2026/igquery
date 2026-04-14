@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Instagram Search Queries Help | Examples, Tips, and Practical Search Guidance",
   description: "Need Instagram search queries help? Learn how to improve Instagram searches with practical examples, stronger modifiers, and ready-to-use search query ideas for creators, brands, and local discovery.",
   alternates: {
-    canonical: "https://igquery.com/instagram-search-queries-help",
+    canonical: "https://www.igquery.com/instagram-search-queries-help",
   },
 };
 

@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://igquery.com"),
+  metadataBase: new URL("https://www.igquery.com"),
   title: {
     default: "Instagram Search Query Optimization | igquery.com",
     template: "%s | igquery.com",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://igquery.com",
+    url: "https://www.igquery.com",
     title: "Instagram Search Query Optimization | igquery.com",
     description: "Free tool for Instagram search queries optimization. Generate smarter queries instantly.",
     siteName: "igquery.com",

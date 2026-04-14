@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://igquery.com";
+  const baseUrl = "https://www.igquery.com";
 
   return [
     {

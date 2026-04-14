@@ -41,6 +41,15 @@ export default function LandingSections() {
                 </p>
               </div>
             </div>
+
+            <div className="mt-12 pt-8 border-t border-white/10 text-center">
+              <p className="text-zinc-400">
+                Want to dive deeper into the methodology?{" "}
+                <Link href="/instagram-search-query-optimization" className="text-indigo-400 hover:text-indigo-300 underline font-medium">
+                  Learn more in our Instagram search query optimization guide
+                </Link>
+              </p>
+            </div>
           </div>
         </div>
       </section>

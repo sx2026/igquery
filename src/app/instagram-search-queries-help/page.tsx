@@ -266,10 +266,6 @@ export default function IGSearchQueriesHelpPage() {
             <section className="pt-12 border-t border-zinc-200 dark:border-zinc-800">
               <h2 className="text-sm font-bold uppercase tracking-widest text-zinc-500 mb-6">Internal Links</h2>
               <div className="flex flex-wrap gap-4">
-                <Link href="/instagram-search-query-optimization" className="text-indigo-600 dark:text-indigo-400 hover:underline text-sm">
-                  Instagram Search Query Optimization
-                </Link>
-                <span className="text-zinc-300">|</span>
                 <Link href="/instagram-search-queries-optimization" className="text-indigo-600 dark:text-indigo-400 hover:underline text-sm">
                   Instagram Search Queries Optimization
                 </Link>

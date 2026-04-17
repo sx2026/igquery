@@ -6,6 +6,9 @@ import Footer from "@/components/layout/Footer";
 export const metadata = {
   title: "Terms of Service | igquery.com",
   description: "Terms of service for igquery.com - Instagram Search Query Optimizer.",
+  alternates: {
+    canonical: "https://www.igquery.com/terms",
+  },
 };
 
 export default function TermsPage() {

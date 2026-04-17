@@ -6,6 +6,9 @@ import Footer from "@/components/layout/Footer";
 export const metadata = {
   title: "Privacy Policy | igquery.com",
   description: "Privacy policy for igquery.com - Instagram Search Query Optimizer.",
+  alternates: {
+    canonical: "https://www.igquery.com/privacy",
+  },
 };
 
 export default function PrivacyPage() {

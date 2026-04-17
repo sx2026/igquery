@@ -34,14 +34,23 @@ export default function Footer() {
           <div className="flex flex-wrap justify-center gap-8 md:justify-end">
             <div className="flex flex-col gap-3">
               <span className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100">Product</span>
-              <Link href="#how-it-works" className="text-sm text-zinc-500 hover:text-indigo-600 dark:text-zinc-400 dark:hover:text-indigo-400">
+              <Link href="/#how-it-works" className="text-sm text-zinc-500 hover:text-indigo-600 dark:text-zinc-400 dark:hover:text-indigo-400">
                 How it works
               </Link>
-              <Link href="#examples" className="text-sm text-zinc-500 hover:text-indigo-600 dark:text-zinc-400 dark:hover:text-indigo-400">
+              <Link href="/#examples" className="text-sm text-zinc-500 hover:text-indigo-600 dark:text-zinc-400 dark:hover:text-indigo-400">
                 Examples
               </Link>
-              <Link href="#faq" className="text-sm text-zinc-500 hover:text-indigo-600 dark:text-zinc-400 dark:hover:text-indigo-400">
+              <Link href="/#faq" className="text-sm text-zinc-500 hover:text-indigo-600 dark:text-zinc-400 dark:hover:text-indigo-400">
                 FAQ
+              </Link>
+            </div>
+            <div className="flex flex-col gap-3">
+              <span className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100">Resources</span>
+              <Link href="/instagram-search-queries-optimization" className="text-sm text-zinc-500 hover:text-indigo-600 dark:text-zinc-400 dark:hover:text-indigo-400">
+                Optimization Guide
+              </Link>
+              <Link href="/instagram-search-queries-help" className="text-sm text-zinc-500 hover:text-indigo-600 dark:text-zinc-400 dark:hover:text-indigo-400">
+                Help Center
               </Link>
             </div>
             <div className="flex flex-col gap-3">

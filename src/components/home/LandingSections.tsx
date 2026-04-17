@@ -45,8 +45,8 @@ export default function LandingSections() {
             <div className="mt-12 pt-8 border-t border-white/10 text-center">
               <p className="text-zinc-400">
                 Want to dive deeper into the methodology?{" "}
-                <Link href="/instagram-search-query-optimization" className="text-indigo-400 hover:text-indigo-300 underline font-medium">
-                  Learn more in our Instagram search query optimization guide
+                <Link href="/instagram-search-queries-optimization" className="text-indigo-400 hover:text-indigo-300 underline font-medium">
+                  Learn more in our Instagram search queries optimization guide
                 </Link>
               </p>
             </div>
@@ -172,19 +172,7 @@ export default function LandingSections() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          <Link href="/instagram-search-query-optimization" className="group flex flex-col rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition-all hover:border-indigo-500 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-indigo-500">
-            <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600 dark:bg-indigo-500/10 dark:text-indigo-400">
-              <BookOpen className="h-5 w-5" />
-            </div>
-            <h3 className="mb-2 font-bold text-zinc-900 dark:text-zinc-50 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 text-lg">
-              What is Instagram Search Query Optimization?
-            </h3>
-            <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-auto">
-              Understand the core concepts of why broad searches fail and how optimization instantly improves discovery.
-            </p>
-          </Link>
-          
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 max-w-4xl mx-auto">
           <Link href="/instagram-search-queries-optimization" className="group flex flex-col rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition-all hover:border-indigo-500 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-indigo-500">
             <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600 dark:bg-indigo-500/10 dark:text-indigo-400">
               <BookOpen className="h-5 w-5" />

@@ -1,32 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import { callAIMLModel, extractAIMLText } from "@/lib/aimlClient.mjs";
 import { buildOptimizePrompt } from "@/lib/optimizePrompt.mjs";
+import { checkRateLimit } from "@/lib/redis";
 
 export const runtime = "nodejs";
 const OPTIMIZE_MODEL = "anthropic/claude-haiku-4.5";
 
-// Simple in-memory rate limiting for MVP
-// In production, use Redis or a similar store
-const rateLimitMap = new Map<string, { count: number; lastReset: number }>();
 const LIMIT = 8;
-const WINDOW = 24 * 60 * 60 * 1000; // 24 hours
-
-function checkRateLimit(ip: string): boolean {
-  const now = Date.now();
-  const data = rateLimitMap.get(ip);
-
-  if (!data || now - data.lastReset > WINDOW) {
-    rateLimitMap.set(ip, { count: 1, lastReset: now });
-    return true;
-  }
-
-  if (data.count >= LIMIT) {
-    return false;
-  }
-
-  data.count += 1;
-  return true;
-}
+const WINDOW_SECONDS = 24 * 60 * 60; // 24 hours
 
 async function verifyRecaptcha(token: string) {
   const secret = process.env.RECAPTCHA_SECRET_KEY;
@@ -51,7 +32,8 @@ export async function POST(req: NextRequest) {
     const ip = req.headers.get("x-forwarded-for") || "unknown";
     
     // 1. Rate Limiting
-    if (!checkRateLimit(ip)) {
+    const { allowed } = await checkRateLimit(ip, LIMIT, WINDOW_SECONDS);
+    if (!allowed) {
       return NextResponse.json(
         { error: "Too many requests. Please try again tomorrow." },
         { status: 429 }

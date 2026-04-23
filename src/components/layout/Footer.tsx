@@ -64,8 +64,83 @@ export default function Footer() {
             </div>
           </div>
         </div>
+
+        {/* Our Network — product matrix for cross-linking SEO */}
+        <div className="flex flex-col items-center justify-center space-y-6 pt-16 pb-8 border-t border-zinc-200 dark:border-zinc-900 mt-12">
+          <p className="text-xs font-bold uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
+            Our Network
+          </p>
+          <div className="grid grid-cols-1 gap-6 w-full max-w-4xl md:grid-cols-3">
+            {/* Card 1: RecentFollowed */}
+            <a
+              href="https://www.recentfollowed.net/"
+              title="RecentFollowed - Track Who Someone Recently Followed on Instagram"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative h-52 w-full overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800"
+            >
+              <Image
+                src="https://s3.us-east-2.amazonaws.com/igquery.com/matrix/recentfollowed.webp"
+                alt="RecentFollowed Background"
+                fill
+                unoptimized
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent transition-opacity duration-300 group-hover:opacity-80" />
+              <div className="absolute bottom-4 left-4 right-4 z-10 flex flex-col">
+                <span className="text-lg font-bold text-white">RecentFollowed</span>
+                <span className="text-xs text-zinc-300">Instagram Follow Tracker</span>
+              </div>
+            </a>
+            {/* Card 2: TTAnonViewer */}
+            <a
+              href="https://www.ttanonviewer.com/"
+              title="TTAnonViewer - Anonymous TikTok Video Viewer"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative h-52 w-full overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800"
+            >
+              <Image
+                src="https://s3.us-east-2.amazonaws.com/igquery.com/matrix/ttanonviewer.webp"
+                alt="TTAnonViewer Background"
+                fill
+                unoptimized
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent transition-opacity duration-300 group-hover:opacity-80" />
+              <div className="absolute bottom-4 left-4 right-4 z-10 flex flex-col">
+                <span className="text-lg font-bold text-white">TTAnonViewer</span>
+                <span className="text-xs text-zinc-300">Anonymous TikTok Viewer</span>
+              </div>
+            </a>
+            {/* Card 3: IGRecent */}
+            <a
+              href="https://www.igrecent.com/"
+              title="IGRecent - Anonymous Instagram Story & Post Viewer"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative h-52 w-full overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800"
+            >
+              <Image
+                src="https://s3.us-east-2.amazonaws.com/igquery.com/matrix/igrecent.webp"
+                alt="IGRecent Background"
+                fill
+                unoptimized
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent transition-opacity duration-300 group-hover:opacity-80" />
+              <div className="absolute bottom-4 left-4 right-4 z-10 flex flex-col">
+                <span className="text-lg font-bold text-white">IGRecent</span>
+                <span className="text-xs text-zinc-300">Anonymous Story Viewer</span>
+              </div>
+            </a>
+          </div>
+        </div>
         
-        <div className="mt-12 flex flex-col items-center justify-between border-t border-zinc-200 pt-8 dark:border-zinc-900 md:flex-row">
+        <div className="flex flex-col items-center justify-between border-t border-zinc-200 pt-8 dark:border-zinc-900 md:flex-row">
           <p className="text-xs text-zinc-500 dark:text-zinc-600">
             &copy; {currentYear} igquery.com. All rights reserved.
           </p>

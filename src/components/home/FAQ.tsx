@@ -1,6 +1,13 @@
+import React from "react";
 import { Plus, Minus } from "lucide-react";
 
-const FAQS = [
+interface FaqItem {
+  question: string;
+  answer?: string;
+  aNode?: React.ReactNode;
+}
+
+const FAQS: FaqItem[] = [
   {
     question: "What is Instagram search query optimization?",
     answer: "Instagram search query optimization is the practice of strategically structuring your searches to find highly specific, relevant content instead of generic posts. By using modifiers, niche terms, and specific intents, you can bypass Instagram's broad algorithmic results to discover precisely what you need."
@@ -48,6 +55,44 @@ const FAQS = [
   {
     question: "Do you fetch live Instagram data directly?",
     answer: "No, IGQuery operates as an optimization engine, not a scraper. It structures and enhances the text of your queries. You simply copy the optimized queries and paste them directly into your Instagram app to see the native results safely."
+  },
+  {
+    question: "Can I also use IGQuery to view Instagram stories anonymously or track someone's recent follows?",
+    aNode: (
+      <>
+        IGQuery is specialized in deep profile analytics and search. If you are looking to view Instagram stories, reels, and posts completely anonymously without leaving a trace, we highly recommend our sister tool,{" "}
+        <a
+          href="https://www.igrecent.com/"
+          title="IGRecent - Anonymous Instagram Story & Post Viewer"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-indigo-600 hover:underline dark:text-indigo-400 font-medium"
+        >
+          IGRecent
+        </a>
+        . Alternatively, if your goal is to track a specific user's new followers or see who they recently followed,{" "}
+        <a
+          href="https://www.recentfollowed.net/"
+          title="RecentFollowed - Track Who Someone Recently Followed on Instagram"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-indigo-600 hover:underline dark:text-indigo-400 font-medium"
+        >
+          RecentFollowed
+        </a>{" "}
+        is built exactly for that purpose. For anonymous TikTok video viewing, you can check out{" "}
+        <a
+          href="https://www.ttanonviewer.com/"
+          title="TTAnonViewer - Anonymous TikTok Video Viewer"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-indigo-600 hover:underline dark:text-indigo-400 font-medium"
+        >
+          TTAnonViewer
+        </a>
+        .
+      </>
+    ),
   }
 ];
 
@@ -75,8 +120,8 @@ export default function FAQ() {
                   <Minus className="absolute inset-0 h-5 w-5 text-indigo-500 opacity-0 transition-opacity group-open:opacity-100" />
                 </span>
               </summary>
-              <div className="border-t border-zinc-100 p-6 text-zinc-600 dark:border-zinc-800 dark:text-zinc-400">
-                {faq.answer}
+              <div className="border-t border-zinc-100 p-6 text-zinc-600 dark:border-zinc-800 dark:text-zinc-400 leading-relaxed">
+                {faq.aNode ?? faq.answer}
               </div>
             </details>
           );

@@ -1,203 +1,177 @@
-import { Search, Target, CheckCircle2, MapPin, Hash, Users, Activity, BookOpen } from "lucide-react";
-import Link from "next/link";
+import { Search, Image as ImageIcon, Camera, Link as LinkIcon, Database, CheckCircle, Lightbulb, Copy } from "lucide-react";
 
 export default function LandingSections() {
   return (
-    <div className="space-y-24 py-16">
-      {/* What is Instagram search query optimization */}
-      <section id="what-is-optimization" className="container mx-auto px-4 sm:px-6">
-        <div className="rounded-3xl bg-zinc-900 px-6 py-12 dark:bg-zinc-900/40 sm:p-16">
-          <div className="mx-auto max-w-4xl text-left">
-            <h2 className="text-3xl font-bold tracking-tight text-white mb-8 sm:text-4xl text-center">
-              Why You Need Instagram Search Query Optimization
-            </h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-              <div>
-                <h3 className="text-xl font-bold text-indigo-400 mb-3">The Problem: Broad Queries Are Noisy</h3>
-                <p className="text-zinc-300 leading-relaxed">
-                  Most people type single, broad words like <strong>"minimalist decor"</strong> or <strong>"skincare"</strong> into Instagram. The result? A flood of generic, viral, and often irrelevant content pushed out by the algorithm.
-                </p>
-              </div>
-              
-              <div>
-                <h3 className="text-xl font-bold text-indigo-400 mb-3">The Reason: Instagram Needs Intent</h3>
-                <p className="text-zinc-300 leading-relaxed">
-                  Instagram's native search engine struggles to guess your actual intent. Without specific modifiers, it defaults to mass-appeal posts rather than surfacing the niche experts, local businesses, or specific inspiration you actually want.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-bold text-indigo-400 mb-3">The Solution: Strategic Optimization</h3>
-                <p className="text-zinc-300 leading-relaxed">
-                  <strong>Instagram search query optimization</strong> structures your keywords strategically. By appending specific modifiers, targeting creative formats (like Reels), pinpointing locations, or adding recency signals, you take control of the algorithm.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-bold text-indigo-400 mb-3">The Result: Unlocking Better Content</h3>
-                <p className="text-zinc-300 leading-relaxed">
-                  Optimized queries bypass the noise. You are suddenly able to discover hidden gem creators, perform deep competitor and market research, find hyper-local venues, and uncover fresh aesthetic inspiration instantly.
-                </p>
-              </div>
-            </div>
-
-            <div className="mt-12 pt-8 border-t border-white/10 text-center">
-              <p className="text-zinc-400">
-                Want to dive deeper into the methodology?{" "}
-                <Link href="/instagram-search-queries-optimization" className="text-indigo-400 hover:text-indigo-300 underline font-medium">
-                  Learn more in our Instagram search queries optimization guide
-                </Link>
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* How it Works Section */}
-      <section id="how-it-works" className="container mx-auto px-4 sm:px-6">
-        <div className="mb-12 text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-4xl">
-            How it Works
+    <div className="space-y-32 py-16">
+      
+      {/* What Are Image Search Techniques */}
+      <section className="container mx-auto max-w-4xl px-4 sm:px-6">
+        <div className="text-center">
+          <h2 className="text-3xl font-extrabold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-4xl mb-6">
+            What Are Image Search Techniques?
           </h2>
-          <p className="mt-4 text-zinc-600 dark:text-zinc-400">
-            Three simple steps to smarter Instagram search
+          <p className="text-lg font-medium text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-3xl mx-auto">
+            Image search techniques are methods used to find, identify, compare, verify, or discover images online. They include keyword-based image search, reverse image search, visual similarity search, product search, metadata search, and platform-specific search operators.
           </p>
         </div>
+      </section>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-          {[
-            {
-              step: "01",
-              title: "Start with a topic or niche",
-              desc: "Enter any keyword, interest, or industry you want to explore.",
-              icon: Search,
-            },
-            {
-              step: "02",
-              title: "Choose what you want to find",
-              desc: "Select your goal, whether it's creators, inspiration, or competitors.",
-              icon: Target,
-            },
-            {
-              step: "03",
-              title: "Get optimized queries for Instagram",
-              desc: "Receive structured groups of queries built specifically for search success.",
-              icon: CheckCircle2,
-            },
-          ].map((item) => (
-            <div
-              key={item.title}
-              className="relative rounded-2xl border border-zinc-200 bg-white p-8 dark:border-zinc-800 dark:bg-zinc-900/50"
-            >
-              <span className="absolute top-4 right-6 select-none text-5xl font-black text-zinc-300 dark:text-zinc-700">
-                {item.step}
-              </span>
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600 dark:bg-indigo-500/10 dark:text-indigo-400">
-                <item.icon className="h-6 w-6" />
-              </div>
-              <h3 className="mb-2 text-xl font-bold text-zinc-900 dark:text-zinc-50">{item.title}</h3>
-              <p className="text-zinc-600 dark:text-zinc-400">{item.desc}</p>
+      {/* Which Technique Should You Use? */}
+      <section className="container mx-auto px-4 sm:px-6">
+        <div className="mx-auto max-w-5xl">
+          <h2 className="text-3xl font-extrabold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-4xl mb-12 text-center">
+            Which Technique Should You Use?
+          </h2>
+          <div className="overflow-hidden rounded-3xl border border-zinc-200 bg-white shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-sm text-zinc-600 dark:text-zinc-400">
+                <thead className="bg-zinc-50 text-xs font-bold uppercase text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100">
+                  <tr>
+                    <th className="px-6 py-4">Goal</th>
+                    <th className="px-6 py-4">Best Technique</th>
+                    <th className="px-6 py-4">Best Tools</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-zinc-100 dark:divide-zinc-800 font-medium">
+                  <tr className="hover:bg-zinc-50 dark:hover:bg-zinc-900/50">
+                    <td className="px-6 py-4 text-zinc-900 dark:text-zinc-100 font-bold">Find original source</td>
+                    <td className="px-6 py-4">Reverse image search</td>
+                    <td className="px-6 py-4">TinEye, Google Lens</td>
+                  </tr>
+                  <tr className="hover:bg-zinc-50 dark:hover:bg-zinc-900/50">
+                    <td className="px-6 py-4 text-zinc-900 dark:text-zinc-100 font-bold">Find similar images</td>
+                    <td className="px-6 py-4">Visual similarity search</td>
+                    <td className="px-6 py-4">Google Lens, Pinterest</td>
+                  </tr>
+                  <tr className="hover:bg-zinc-50 dark:hover:bg-zinc-900/50">
+                    <td className="px-6 py-4 text-zinc-900 dark:text-zinc-100 font-bold">Find product</td>
+                    <td className="px-6 py-4">Object search</td>
+                    <td className="px-6 py-4">Google Lens, Bing</td>
+                  </tr>
+                  <tr className="hover:bg-zinc-50 dark:hover:bg-zinc-900/50">
+                    <td className="px-6 py-4 text-zinc-900 dark:text-zinc-100 font-bold">Verify image</td>
+                    <td className="px-6 py-4">Reverse + context search</td>
+                    <td className="px-6 py-4">TinEye, Google</td>
+                  </tr>
+                  <tr className="hover:bg-zinc-50 dark:hover:bg-zinc-900/50">
+                    <td className="px-6 py-4 text-zinc-900 dark:text-zinc-100 font-bold">Find inspiration</td>
+                    <td className="px-6 py-4">Keyword + visual search</td>
+                    <td className="px-6 py-4">Pinterest, Instagram</td>
+                  </tr>
+                  <tr className="hover:bg-zinc-50 dark:hover:bg-zinc-900/50">
+                    <td className="px-6 py-4 text-zinc-900 dark:text-zinc-100 font-bold">Search archives</td>
+                    <td className="px-6 py-4">Metadata search</td>
+                    <td className="px-6 py-4">JSTOR, Museum collections</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-          ))}
+          </div>
         </div>
       </section>
 
-      {/* Examples / Use Cases Section */}
-      <section id="examples" className="bg-zinc-50 py-24 dark:bg-zinc-900/40">
+      {/* Core Techniques Grid */}
+      <section className="bg-zinc-50 py-24 dark:bg-zinc-900/40">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="mb-16 text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-4xl">
-              Queries for every use case
+            <h2 className="text-3xl font-extrabold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-4xl">
+              Core Image Search Techniques
             </h2>
-            <p className="mt-4 text-zinc-600 dark:text-zinc-400">
-              Stop guessing. Start using queries that actually reveal what you&apos;re looking for.
-            </p>
           </div>
-
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
             {[
-              {
-                title: "Creator Discovery",
-                desc: "Find the leading voices and rising creators in your niche.",
-                icon: Users,
-                sample: "vintage watch creator",
-              },
-              {
-                title: "Local Discovery",
-                desc: "Discover businesses and local trends in specific cities.",
-                icon: MapPin,
-                sample: "minimalist café tokyo",
-              },
-              {
-                title: "Content Inspiration",
-                desc: "Explore what's trending and how others approach topics.",
-                icon: Activity,
-                sample: "pilates studio reels inspo",
-              },
-              {
-                title: "Competitor Research",
-                desc: "Analyze how similar brands are positioning themselves.",
-                icon: Hash,
-                sample: "handcrafted jewelry brand",
-              },
-            ].map((item) => (
-              <div
-                key={item.title}
-                className="group rounded-2xl bg-white p-6 shadow-sm ring-1 ring-zinc-200 transition-all hover:shadow-md dark:bg-zinc-900 dark:ring-zinc-800"
-              >
-                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-zinc-100 text-zinc-600 transition-colors group-hover:bg-indigo-600 group-hover:text-white dark:bg-zinc-800 dark:text-zinc-400">
-                  <item.icon className="h-5 w-5" />
+              { title: "Keyword-based image search", desc: "Using descriptive text, modifiers, and search operators to find images.", icon: Search },
+              { title: "Reverse image search", desc: "Uploading an image to find exactly where else it appears online.", icon: ImageIcon },
+              { title: "Visual similarity search", desc: "Finding images with the same composition, style, or color palette.", icon: Lightbulb },
+              { title: "Object-based visual search", desc: "Cropping an image to identify a specific landmark, plant, or object.", icon: Camera },
+              { title: "Metadata and context search", desc: "Searching for the text, tags, or EXIF data surrounding an image.", icon: Database },
+              { title: "Site-specific image search", desc: "Using 'site:' operators to search images within a specific platform.", icon: LinkIcon },
+            ].map((item, i) => (
+              <div key={i} className="break-inside-avoid rounded-3xl border border-zinc-200 bg-white p-8 shadow-sm hover:shadow-md transition-shadow dark:border-zinc-800 dark:bg-zinc-950">
+                <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-red-50 text-primary dark:bg-red-950/30">
+                  <item.icon className="h-6 w-6" />
                 </div>
-                <h3 className="mb-1 font-bold text-zinc-900 dark:text-zinc-50">{item.title}</h3>
-                <p className="mb-4 text-sm text-zinc-600 dark:text-zinc-400">{item.desc}</p>
-                <div className="flex items-center gap-2 rounded-lg bg-zinc-100 p-2.5 text-xs font-mono text-zinc-700 dark:bg-zinc-950 dark:text-zinc-300">
-                  <span className="shrink-0 font-bold text-indigo-700 dark:text-indigo-300">Example Query:</span>
-                  <span className="truncate">{item.sample}</span>
-                </div>
+                <h3 className="mb-3 text-xl font-bold text-zinc-900 dark:text-zinc-50">{item.title}</h3>
+                <p className="font-medium text-zinc-600 dark:text-zinc-400">{item.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Learn More SEO Hub Links */}
-      <section id="learn-more" className="container mx-auto px-4 sm:px-6">
-        <div className="mb-12 text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
-            Learn More About Search Optimization
-          </h2>
-          <p className="mt-4 text-zinc-600 dark:text-zinc-400">
-            Deep dive into the strategies, examples, and methodology of optimizing your Instagram searches.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 max-w-4xl mx-auto">
-          <Link href="/instagram-search-queries-optimization" className="group flex flex-col rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition-all hover:border-indigo-500 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-indigo-500">
-            <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600 dark:bg-indigo-500/10 dark:text-indigo-400">
-              <BookOpen className="h-5 w-5" />
+      {/* Advanced Query Templates */}
+      <section className="container mx-auto max-w-4xl px-4 sm:px-6">
+        <h2 className="text-3xl font-extrabold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-4xl mb-12 text-center">
+          Advanced Query Templates
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {[
+            'site:pinterest.com "{topic}"',
+            'site:instagram.com "{topic}" creator',
+            '"{topic}" "where to buy"',
+            '"{topic}" "original source"',
+            '"{topic}" "photographer"',
+            '"{topic}" "before after"',
+            '"{topic}" "2026"',
+            'intitle:"{topic}" image'
+          ].map((query, i) => (
+            <div key={i} className="flex items-center justify-between rounded-2xl border border-zinc-200 bg-zinc-50 p-4 dark:border-zinc-800 dark:bg-zinc-900">
+              <code className="font-mono text-sm font-bold text-zinc-700 dark:text-zinc-300">{query}</code>
             </div>
-            <h3 className="mb-2 font-bold text-zinc-900 dark:text-zinc-50 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 text-lg">
-              Methodology & Strategy
-            </h3>
-            <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-auto">
-              Learn the framework behind Core, Long-tail, Intent, and Recency queries. Perfect your daily search strategy.
-            </p>
-          </Link>
-
-          <Link href="/instagram-search-queries-help" className="group flex flex-col rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition-all hover:border-indigo-500 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-indigo-500">
-            <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600 dark:bg-indigo-500/10 dark:text-indigo-400">
-              <BookOpen className="h-5 w-5" />
-            </div>
-            <h3 className="mb-2 font-bold text-zinc-900 dark:text-zinc-50 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 text-lg">
-              Practical Examples & Help
-            </h3>
-            <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-auto">
-              Get hands-on help and copy-paste examples for finding creators, local businesses, or analyzing competitors.
-            </p>
-          </Link>
+          ))}
         </div>
       </section>
+
+      {/* Best Tools */}
+      <section className="container mx-auto px-4 sm:px-6">
+        <div className="mb-12 text-center">
+          <h2 className="text-3xl font-extrabold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-4xl">
+            Best Tools for Image Search
+          </h2>
+        </div>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {[
+            { name: "Google Lens", best: "Similar images, products, objects", limit: "Not great for finding oldest sources" },
+            { name: "TinEye", best: "Exact duplicates, source history", limit: "Index is smaller than Google" },
+            { name: "Pinterest Lens", best: "Aesthetic inspiration, fashion", limit: "Only searches Pinterest's database" },
+            { name: "Bing Visual Search", best: "Shopping, text extraction", limit: "Can be noisy with ads" },
+          ].map((tool, i) => (
+            <div key={i} className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
+              <h3 className="mb-2 text-xl font-bold text-zinc-900 dark:text-zinc-50">{tool.name}</h3>
+              <p className="mb-4 text-sm font-bold text-primary">Best for: {tool.best}</p>
+              <p className="text-sm font-medium text-zinc-500 dark:text-zinc-400">Limitation: {tool.limit}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Workflows */}
+      <section className="bg-zinc-900 py-24 dark:bg-zinc-950">
+        <div className="container mx-auto max-w-5xl px-4 sm:px-6">
+          <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl mb-16 text-center">
+            Practical Image Search Workflows
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+              <h3 className="text-xl font-bold text-white mb-6">How to find an image's original source</h3>
+              <ul className="space-y-4 text-zinc-300 font-medium">
+                <li className="flex gap-3"><CheckCircle className="h-6 w-6 text-primary shrink-0" /> Upload to Google Lens for exact matches.</li>
+                <li className="flex gap-3"><CheckCircle className="h-6 w-6 text-primary shrink-0" /> Run through TinEye and sort by oldest date.</li>
+                <li className="flex gap-3"><CheckCircle className="h-6 w-6 text-primary shrink-0" /> Extract visible text or watermarks and search as keywords.</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-white mb-6">How to find a product from an image</h3>
+              <ul className="space-y-4 text-zinc-300 font-medium">
+                <li className="flex gap-3"><CheckCircle className="h-6 w-6 text-primary shrink-0" /> Crop the image directly around the product.</li>
+                <li className="flex gap-3"><CheckCircle className="h-6 w-6 text-primary shrink-0" /> Search with Google Lens or Bing Visual Search.</li>
+                <li className="flex gap-3"><CheckCircle className="h-6 w-6 text-primary shrink-0" /> Add modifiers like "where to buy" or material names.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 }

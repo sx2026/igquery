@@ -3,96 +3,49 @@ import { Plus, Minus } from "lucide-react";
 
 interface FaqItem {
   question: string;
-  answer?: string;
-  aNode?: React.ReactNode;
+  answer: string;
 }
 
 const FAQS: FaqItem[] = [
   {
-    question: "What is Instagram search query optimization?",
-    answer: "Instagram search query optimization is the practice of strategically structuring your searches to find highly specific, relevant content instead of generic posts. By using modifiers, niche terms, and specific intents, you can bypass Instagram's broad algorithmic results to discover precisely what you need."
+    question: "What is the best image search technique?",
+    answer: "There is no single best technique. The right choice depends on your goal. If you want to find an image's origin, use reverse image search (like TinEye). If you're looking for inspiration or shopping items, use visual similarity search (like Google Lens or Pinterest Lens). For deep database searches, metadata and keyword operators work best."
   },
   {
-    question: "How can I improve my Instagram search queries?",
-    answer: "To improve your Instagram search queries, move beyond single words. Add context like locations, content formats (e.g., 'reels', 'ideas'), audience intents (e.g., 'for beginners', 'budget'), or recency signals (e.g., 'this week', the current year). This signals exactly what you're looking for to Instagram's search engine."
+    question: "How do I find the original source of an image?",
+    answer: "To find the original source, use a reverse image search engine like TinEye or Google Images. These engines look for exact or near-exact duplicates across the web. Sort the results by 'oldest' (if supported) or look for high-authority domains like news sites or official portfolios. You can also search for visible text or watermarks in the image."
   },
   {
-    question: "Can this tool help with Instagram search queries optimization?",
-    answer: "Yes! IGQuery is specifically built to automate the optimization process. When you enter a basic seed keyword, our AI generates multiple structured groups of advanced queries (Core, Long-tail, Intent-based, and Recency-oriented) that are ready to be used on Instagram."
+    question: "What is the difference between reverse image search and visual similarity search?",
+    answer: "Reverse image search looks for exact copies or slightly modified versions of the same image to track its origin or usage. Visual similarity search looks for different images that share the same aesthetic, colors, composition, or objects (e.g., finding a similar dress or a room with a similar layout)."
   },
   {
-    question: "How do I get help with Instagram search queries?",
-    answer: "If you're stuck getting generic search results, you can use our tool to instantly generate better search terms. You can also explore our guidance pages for tips, methodology, and specialized examples covering different topics like creator discovery or competitor research."
+    question: "How do I find similar images online?",
+    answer: "Use visual discovery tools like Pinterest Lens or Google Lens. Simply upload your image, crop it to focus on the specific element you like, and the tool will return visually similar content. You can also type descriptive keyword queries and append words like 'aesthetic', 'ideas', or 'inspiration'."
   },
   {
-    question: "What is the difference between hashtags and Instagram search queries?",
-    answer: "Hashtags are specific tags creators add to their posts (like #minimalistdecor). Search queries are the phrases you type into the search bar. Modern Instagram relies heavily on keyword-based semantic search, meaning a well-structured query can often find highly relevant content even if the creator didn't use specific hashtags."
+    question: "Which tool is best for reverse image search?",
+    answer: "TinEye is widely considered one of the best tools for strict reverse image search because it focuses heavily on finding exact matches and older versions, making it great for finding original sources. Google Lens is also excellent, especially for identifying objects and finding similar images across a broader index."
   },
   {
-    question: "Can I use this tool for creator discovery?",
-    answer: "Absolutely. By selecting 'Creator Discovery' as your search goal, the tool optimizes your queries to include terms that typically surface influencer profiles, content creators, and professional portfolios rather than just random lifestyle posts."
+    question: "Can I search Instagram by image?",
+    answer: "Instagram does not have a native reverse image search feature. However, you can use Google site operators (e.g., site:instagram.com 'your keyword') to search Instagram's indexed text, or use Google Lens to see if the image has been posted publicly on Instagram or other social platforms."
   },
   {
-    question: "How does it help with competitor research?",
-    answer: "For competitor research, we optimize your queries to locate brands, studios, product launches, and business accounts operating within your niche, allowing you to easily survey how competitors are presenting themselves on the platform."
+    question: "How do I find a product from an image?",
+    answer: "Crop the image so only the product is visible. Then use Google Lens, Bing Visual Search, or the Amazon app's camera feature. These tools are optimized to identify objects and match them with shoppable products across the web."
   },
   {
-    question: "Is this effective for local discovery?",
-    answer: "Yes, local discovery is one of the most popular uses for search query optimization. By combining a topic with a location and specific modifier (e.g., 'matcha cafe new york review'), you're much more likely to find localized, authentic recommendations."
+    question: "How do I verify if an image is real?",
+    answer: "Start with a reverse image search across multiple platforms (Google, TinEye, Bing, Yandex). Look for the earliest date the image was published. If an image claims to be from a recent event but appears in search results from years ago, it is likely being misrepresented. You can also check fact-checking websites or look for obvious AI-generation artifacts."
   },
   {
-    question: "Can I use Instagram search query optimization for competitor research?",
-    answer: "Yes. Simply switch the 'Search Goal' to Competitor Research. Your seed keyword will be appended with specific business modifiers like 'brand', 'startup', or 'launch', helping you analyze how related brands position themselves visually."
+    question: "What are advanced image search operators?",
+    answer: "Advanced operators are special commands you add to your keyword search. Examples include 'site:pinterest.com' to only search Pinterest, putting exact phrases in quotes (\"vintage red car\"), or using 'filetype:jpg' to filter by file format. These force the search engine to be much more specific."
   },
   {
-    question: "Can brands use optimized Instagram search queries for market research?",
-    answer: "Absolutely. By analyzing optimized long-tail queries and intent-based searches, brands can quickly find their target audience's pain points, trending aesthetic formats, and common product alternatives directly from real user content."
-  },
-  {
-    question: "What are examples of strong Instagram search modifiers?",
-    answer: "Strong modifiers add intent. For content inspiration: 'aesthetic', 'routine', 'before after'. For creators: 'influencer', 'instructor', 'creator'. For intent to buy: 'review', 'shopping haul', 'affordable'."
-  },
-  {
-    question: "Do you fetch live Instagram data directly?",
-    answer: "No, IGQuery operates as an optimization engine, not a scraper. It structures and enhances the text of your queries. You simply copy the optimized queries and paste them directly into your Instagram app to see the native results safely."
-  },
-  {
-    question: "Can I also use IGQuery to view Instagram stories anonymously or track someone's recent follows?",
-    aNode: (
-      <>
-        IGQuery is specialized in deep profile analytics and search. If you are looking to view Instagram stories, reels, and posts completely anonymously without leaving a trace, we highly recommend our sister tool,{" "}
-        <a
-          href="https://www.igrecent.com/"
-          title="IGRecent - Anonymous Instagram Story & Post Viewer"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-indigo-600 hover:underline dark:text-indigo-400 font-medium"
-        >
-          IGRecent
-        </a>
-        . Alternatively, if your goal is to track a specific user's new followers or see who they recently followed,{" "}
-        <a
-          href="https://www.recentfollowed.net/"
-          title="RecentFollowed - Track Who Someone Recently Followed on Instagram"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-indigo-600 hover:underline dark:text-indigo-400 font-medium"
-        >
-          RecentFollowed
-        </a>{" "}
-        is built exactly for that purpose. For anonymous TikTok video viewing, you can check out{" "}
-        <a
-          href="https://www.ttanonviewer.com/"
-          title="TTAnonViewer - Anonymous TikTok Video Viewer"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-indigo-600 hover:underline dark:text-indigo-400 font-medium"
-        >
-          TTAnonViewer
-        </a>
-        .
-      </>
-    ),
+    question: "Why do different image search tools show different results?",
+    answer: "Every search engine (Google, Bing, TinEye, Yandex) uses its own proprietary web crawler, indexing method, and image recognition algorithm. Some prioritize exact pixel matches, while others prioritize semantic meaning or visual similarity. Using multiple tools will give you the most comprehensive results."
   }
 ];
 
@@ -111,17 +64,17 @@ export default function FAQ() {
             <details
               key={faq.question}
               open={idx === 0}
-              className="group rounded-2xl border border-zinc-200 bg-white overflow-hidden transition-all open:shadow-sm dark:border-zinc-800 dark:bg-zinc-900/50"
+              className="group rounded-3xl border border-zinc-200 bg-white overflow-hidden transition-all open:shadow-sm dark:border-zinc-800 dark:bg-zinc-950"
             >
               <summary className="flex cursor-pointer list-none items-center justify-between p-6 text-left outline-none [&::-webkit-details-marker]:hidden">
-                <span className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">{faq.question}</span>
+                <span className="text-lg font-bold text-zinc-900 dark:text-zinc-50">{faq.question}</span>
                 <span className="relative ml-4 h-5 w-5 shrink-0">
                   <Plus className="absolute inset-0 h-5 w-5 text-zinc-400 transition-opacity group-open:opacity-0" />
-                  <Minus className="absolute inset-0 h-5 w-5 text-indigo-500 opacity-0 transition-opacity group-open:opacity-100" />
+                  <Minus className="absolute inset-0 h-5 w-5 text-primary opacity-0 transition-opacity group-open:opacity-100" />
                 </span>
               </summary>
-              <div className="border-t border-zinc-100 p-6 text-zinc-600 dark:border-zinc-800 dark:text-zinc-400 leading-relaxed">
-                {faq.aNode ?? faq.answer}
+              <div className="border-t border-zinc-100 p-6 pt-2 font-medium text-zinc-600 dark:border-zinc-800 dark:text-zinc-400 leading-relaxed">
+                {faq.answer}
               </div>
             </details>
           );

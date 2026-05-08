@@ -37,7 +37,7 @@ export default function TermsPage() {
             </div>
 
             <article className="prose prose-zinc dark:prose-invert max-w-none space-y-6 text-zinc-600 dark:text-zinc-400">
-              <p className="text-sm italic">Last updated: April 13, 2026</p>
+              <p className="text-sm italic">Last updated: May 8, 2026</p>
 
               <section className="space-y-4">
                 <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100">1. Acceptance of Terms</h2>
@@ -49,26 +49,26 @@ export default function TermsPage() {
               <section className="space-y-4">
                 <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100">2. Use of Service</h2>
                 <p>
-                  igquery.com provides an AI-powered search query optimizer. You agree to use the Service only for lawful purposes. You are prohibited from:
+                  igquery.com provides an Image Search Query Generator and visual search toolkit. You agree to use the Service only for lawful purposes. You are prohibited from:
                 </p>
                 <ul className="list-disc pl-5 space-y-1">
                   <li>Automating queries to our backend (scraping or bots).</li>
                   <li>Using the service for illegal or harmful content generation.</li>
-                  <li>Attempting to bypass reCAPTCHA or rate-limiting measures.</li>
+                  <li>Attempting to bypass any rate-limiting measures.</li>
                 </ul>
               </section>
 
               <section className="space-y-4">
                 <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100">3. Intellectual Property</h2>
                 <p>
-                  The logo, design, and code of igquery.com are the intellectual property of its owners. Generated search queries are for your use, but the Service itself may not be replicated or redistributed without permission.
+                  The logo, design, and code of igquery.com are the intellectual property of its owners. Generated search queries are for your personal or professional use, but the Service itself may not be replicated or redistributed without permission.
                 </p>
               </section>
 
               <section className="space-y-4">
                 <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100">4. Disclaimer of Affiliation</h2>
                 <p>
-                  <strong>igquery.com is NOT affiliated with, sponsored by, or endorsed by Instagram, Meta, or any of their subsidiaries.</strong> The term "Instagram" is used solely for descriptive purposes to explain the tool's functionality.
+                  <strong>igquery.com is NOT affiliated with, sponsored by, or endorsed by Google, Pinterest, TinEye, Instagram, Meta, Microsoft Bing, or any other third-party visual search platform mentioned on the site.</strong> The terms "Google Lens", "Pinterest", "Instagram", etc., are used solely for descriptive purposes to explain the tool's intended search targets and functionality.
                 </p>
               </section>
 

@@ -11,19 +11,19 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.igquery.com"),
   title: {
-    default: "Instagram Search Query Optimization | igquery.com",
-    template: "%s | igquery.com",
+    default: "Image Search Techniques & Query Generator | IGQuery",
+    template: "%s | IGQuery",
   },
-  description: "Free tool for Instagram search queries optimization. Generate smarter Instagram search queries for inspiration, creator discovery, and competitor research.",
-  keywords: ["instagram search", "instagram search queries optimization", "instagram search query optimization", "instagram search queries help", "igquery"],
+  description: "Generate smarter image search queries, reverse image search workflows, and platform-specific search tactics for Google Images, Lens, TinEye, Pinterest, Instagram, Reddit, and more.",
+  keywords: ["image search techniques", "reverse image search", "image search query generator", "find original image source", "visual search", "igquery"],
   authors: [{ name: "igquery team" }],
   creator: "igquery",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://www.igquery.com",
-    title: "Instagram Search Query Optimization | igquery.com",
-    description: "Free tool for Instagram search queries optimization. Generate smarter queries instantly.",
+    title: "Image Search Techniques & Query Generator | IGQuery",
+    description: "Generate smarter image search queries, reverse image search workflows, and platform-specific search tactics.",
     siteName: "igquery.com",
     images: [
       {
@@ -36,8 +36,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Instagram Search Query Optimization | igquery.com",
-    description: "Smarter Instagram search starts here.",
+    title: "Image Search Techniques & Query Generator | IGQuery",
+    description: "Smarter image search starts here.",
     creator: "@igquery",
     images: ["/brand/og-1200x630.png"],
   },
@@ -52,33 +52,27 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "igquery",
-    "operatingSystem": "Web",
-    "applicationCategory": "BusinessApplication",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    },
-    "description": "Tool for Instagram search queries optimization. Turns vague ideas into smart search queries."
-  };
-
   return (
     <html
       lang="en"
       className={`${inter.variable} h-full antialiased`}
     >
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-      </head>
       <body className="min-h-full flex flex-col bg-white dark:bg-zinc-950">
         <DeferredAnalytics />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebApplication",
+              "name": "IGQuery - Image Search Query Generator",
+              "applicationCategory": "UtilitiesApplication",
+              "operatingSystem": "All",
+              "url": "https://www.igquery.com",
+              "description": "Generate optimized search queries and workflows for reverse image search and visual discovery."
+            }),
+          }}
+        />
         {children}
       </body>
     </html>

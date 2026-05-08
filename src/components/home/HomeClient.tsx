@@ -1,102 +1,17 @@
 "use client";
 
-import dynamic from "next/dynamic";
-import { useEffect, useRef, useState } from "react";
-import QueryBuilder from "@/components/home/QueryBuilder";
-import SampleChips from "@/components/home/SampleChips";
-import DemoPreview from "@/components/home/DemoPreview";
+import { useEffect } from "react";
+import SearchStrategyGenerator from "@/components/home/SearchStrategyGenerator";
 import { trackEvent } from "@/lib/analytics";
 
-interface QueryGroup {
-  type: string;
-  title: string;
-  description: string;
-  queries: string[];
-}
-
-const ResultDisplay = dynamic(() => import("@/components/home/ResultDisplay"));
-
 export default function HomeClient() {
-  const [loading, setLoading] = useState(false);
-  const [results, setResults] = useState<null | { groups: QueryGroup[]; related_searches?: string[] }>(null);
-  const [selectedSeed, setSelectedSeed] = useState("");
-  const [autoSubmitTrigger, setAutoSubmitTrigger] = useState(0);
-  const [formKey, setFormKey] = useState(0);
-  const resultsRef = useRef<HTMLDivElement | null>(null);
-
   useEffect(() => {
     trackEvent("homepage_view");
   }, []);
 
-  useEffect(() => {
-    if (!results) {
-      return;
-    }
-
-    const frameId = window.requestAnimationFrame(() => {
-      resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-
-    return () => window.cancelAnimationFrame(frameId);
-  }, [results]);
-
-  const handleSampleSelect = (seed: string) => {
-    setSelectedSeed(seed);
-  };
-
-  const handleReset = () => {
-    setResults(null);
-    setSelectedSeed("");
-    setFormKey((prev) => prev + 1);
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-  const handleRelatedSearch = (term: string) => {
-    setSelectedSeed(term);
-    setAutoSubmitTrigger((prev) => prev + 1);
-  };
-
   return (
-    <div className="container mx-auto max-w-4xl pb-16">
-      <QueryBuilder
-        key={formKey}
-        onResult={setResults}
-        loading={loading}
-        setLoading={setLoading}
-        initialSeed={selectedSeed}
-        autoSubmitTrigger={autoSubmitTrigger}
-      />
-      <DemoPreview />
-      <SampleChips onSelect={handleSampleSelect} />
-
-      {results && (
-        <div id="results" ref={resultsRef} className="pt-12">
-          <div className="mb-8 px-4 text-center">
-            <h2 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">Your Optimized Instagram Search Queries</h2>
-            <p className="text-zinc-600 dark:text-zinc-400">Copy and use these optimized Instagram search queries in the Instagram search bar.</p>
-          </div>
-          <ResultDisplay 
-            groups={results.groups} 
-            relatedSearches={results.related_searches}
-            onRelatedSearch={handleRelatedSearch} 
-          />
-
-          <div className="mt-12 flex flex-col items-center justify-center gap-4 px-4 sm:flex-row">
-            <button
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="w-full rounded-xl bg-zinc-900 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-zinc-800 active:scale-95 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200 sm:w-auto"
-            >
-              Adjust Search
-            </button>
-            <button
-              onClick={handleReset}
-              className="w-full rounded-xl border border-zinc-200 bg-white px-6 py-3 text-sm font-semibold text-zinc-600 transition-all hover:bg-zinc-50 active:scale-95 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-800 sm:w-auto"
-            >
-              Clear & Start New
-            </button>
-          </div>
-        </div>
-      )}
+    <div className="container mx-auto pt-16 pb-16">
+      <SearchStrategyGenerator />
     </div>
   );
 }

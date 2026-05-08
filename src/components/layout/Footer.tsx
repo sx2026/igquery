@@ -5,7 +5,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="border-t border-zinc-200 bg-zinc-50 py-12 dark:border-zinc-800 dark:bg-zinc-950">
+    <footer className="border-t border-zinc-100 bg-white py-12 dark:border-zinc-900 dark:bg-zinc-950">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
           <div className="flex flex-col items-center gap-4 md:items-start">
@@ -13,52 +13,58 @@ export default function Footer() {
               <div className="flex items-center gap-2">
                 <Image
                   src="/brand/logo.webp"
-                  alt="igquery logo"
+                  alt="IGQuery logo"
                   width={24}
                   height={24}
-                  className="h-6 w-6 rounded"
+                  className="h-6 w-6 rounded-full"
                 />
                 <span className="text-lg font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
-                  igquery<span className="text-indigo-600">.com</span>
+                  IGQuery
                 </span>
               </div>
               <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
-                Instagram Search Query Optimization
+                Image Search Techniques
               </span>
             </Link>
-            <p className="max-w-xs text-center text-sm text-zinc-500 md:text-left dark:text-zinc-500">
-              Need Instagram search queries help? Optimize vague topics into usable, high-converting search phrases.
+            <p className="max-w-xs text-center text-sm text-zinc-500 md:text-left dark:text-zinc-400">
+              A practical toolkit for smarter image searching — from reverse image search to visual discovery, source finding, product search, and advanced search queries.
             </p>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-8 md:justify-end">
-            <div className="flex flex-col gap-3">
-              <span className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100">Product</span>
-              <Link href="/#how-it-works" className="text-sm text-zinc-500 hover:text-indigo-600 dark:text-zinc-400 dark:hover:text-indigo-400">
-                How it works
+          <div className="flex flex-wrap justify-center gap-12 md:justify-end">
+            <div className="flex flex-col gap-4">
+              <span className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100">Product & Tools</span>
+              <Link href="/#generator" className="text-sm font-medium text-zinc-600 hover:text-primary dark:text-zinc-400 dark:hover:text-primary">
+                Search Generator
               </Link>
-              <Link href="/#examples" className="text-sm text-zinc-500 hover:text-indigo-600 dark:text-zinc-400 dark:hover:text-indigo-400">
-                Examples
+              <Link href="/find-product-from-image" className="text-sm font-medium text-zinc-600 hover:text-primary dark:text-zinc-400 dark:hover:text-primary">
+                Find Products
               </Link>
-              <Link href="/#faq" className="text-sm text-zinc-500 hover:text-indigo-600 dark:text-zinc-400 dark:hover:text-indigo-400">
-                FAQ
+              <Link href="/find-similar-images" className="text-sm font-medium text-zinc-600 hover:text-primary dark:text-zinc-400 dark:hover:text-primary">
+                Find Similar Images
               </Link>
-            </div>
-            <div className="flex flex-col gap-3">
-              <span className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100">Resources</span>
-              <Link href="/instagram-search-queries-optimization" className="text-sm text-zinc-500 hover:text-indigo-600 dark:text-zinc-400 dark:hover:text-indigo-400">
-                Optimization Guide
-              </Link>
-              <Link href="/instagram-search-queries-help" className="text-sm text-zinc-500 hover:text-indigo-600 dark:text-zinc-400 dark:hover:text-indigo-400">
-                Help Center
+              <Link href="/find-original-image-source" className="text-sm font-medium text-zinc-600 hover:text-primary dark:text-zinc-400 dark:hover:text-primary">
+                Find Sources
               </Link>
             </div>
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-4">
+              <span className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100">Guides</span>
+              <Link href="/image-search-techniques" className="text-sm font-medium text-zinc-600 hover:text-primary dark:text-zinc-400 dark:hover:text-primary">
+                Image Search Techniques
+              </Link>
+              <Link href="/reverse-image-search-techniques" className="text-sm font-medium text-zinc-600 hover:text-primary dark:text-zinc-400 dark:hover:text-primary">
+                Reverse Image Search
+              </Link>
+              <Link href="/google-image-search-techniques" className="text-sm font-medium text-zinc-600 hover:text-primary dark:text-zinc-400 dark:hover:text-primary">
+                Google Images Tips
+              </Link>
+            </div>
+            <div className="flex flex-col gap-4">
               <span className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100">Legal</span>
-              <Link href="/privacy" className="text-sm text-zinc-500 hover:text-indigo-600 dark:text-zinc-400 dark:hover:text-indigo-400 transition-colors">
+              <Link href="/privacy" className="text-sm font-medium text-zinc-600 hover:text-primary dark:text-zinc-400 dark:hover:text-primary transition-colors">
                 Privacy
               </Link>
-              <Link href="/terms" className="text-sm text-zinc-500 hover:text-indigo-600 dark:text-zinc-400 dark:hover:text-indigo-400 transition-colors">
+              <Link href="/terms" className="text-sm font-medium text-zinc-600 hover:text-primary dark:text-zinc-400 dark:hover:text-primary transition-colors">
                 Terms
               </Link>
             </div>
@@ -66,7 +72,7 @@ export default function Footer() {
         </div>
 
         {/* Our Network — product matrix for cross-linking SEO */}
-        <div className="flex flex-col items-center justify-center space-y-6 pt-16 pb-8 border-t border-zinc-200 dark:border-zinc-900 mt-12">
+        <div className="flex flex-col items-center justify-center space-y-6 pt-16 pb-8 border-t border-zinc-100 dark:border-zinc-900 mt-12">
           <p className="text-xs font-bold uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
             Our Network
           </p>
@@ -77,7 +83,7 @@ export default function Footer() {
               title="RecentFollowed - Track Who Someone Recently Followed on Instagram"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative h-52 w-full overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800"
+              className="group relative h-48 w-full overflow-hidden rounded-2xl border border-zinc-100 dark:border-zinc-800"
             >
               <Image
                 src="https://s3.us-east-2.amazonaws.com/igquery.com/matrix/recentfollowed.webp"
@@ -85,12 +91,12 @@ export default function Footer() {
                 fill
                 unoptimized
                 sizes="(max-width: 768px) 100vw, 33vw"
-                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent transition-opacity duration-300 group-hover:opacity-80" />
-              <div className="absolute bottom-4 left-4 right-4 z-10 flex flex-col">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-300 group-hover:opacity-70" />
+              <div className="absolute bottom-5 left-5 right-5 z-10 flex flex-col gap-1">
                 <span className="text-lg font-bold text-white">RecentFollowed</span>
-                <span className="text-xs text-zinc-300">Instagram Follow Tracker</span>
+                <span className="text-xs font-medium text-zinc-300">Instagram Follow Tracker</span>
               </div>
             </a>
             {/* Card 2: TTAnonViewer */}
@@ -99,7 +105,7 @@ export default function Footer() {
               title="TTAnonViewer - Anonymous TikTok Video Viewer"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative h-52 w-full overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800"
+              className="group relative h-48 w-full overflow-hidden rounded-2xl border border-zinc-100 dark:border-zinc-800"
             >
               <Image
                 src="https://s3.us-east-2.amazonaws.com/igquery.com/matrix/ttanonviewer.webp"
@@ -107,12 +113,12 @@ export default function Footer() {
                 fill
                 unoptimized
                 sizes="(max-width: 768px) 100vw, 33vw"
-                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent transition-opacity duration-300 group-hover:opacity-80" />
-              <div className="absolute bottom-4 left-4 right-4 z-10 flex flex-col">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-300 group-hover:opacity-70" />
+              <div className="absolute bottom-5 left-5 right-5 z-10 flex flex-col gap-1">
                 <span className="text-lg font-bold text-white">TTAnonViewer</span>
-                <span className="text-xs text-zinc-300">Anonymous TikTok Viewer</span>
+                <span className="text-xs font-medium text-zinc-300">Anonymous TikTok Viewer</span>
               </div>
             </a>
             {/* Card 3: IGRecent */}
@@ -121,7 +127,7 @@ export default function Footer() {
               title="IGRecent - Anonymous Instagram Story & Post Viewer"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative h-52 w-full overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800"
+              className="group relative h-48 w-full overflow-hidden rounded-2xl border border-zinc-100 dark:border-zinc-800"
             >
               <Image
                 src="https://s3.us-east-2.amazonaws.com/igquery.com/matrix/igrecent.webp"
@@ -129,23 +135,23 @@ export default function Footer() {
                 fill
                 unoptimized
                 sizes="(max-width: 768px) 100vw, 33vw"
-                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent transition-opacity duration-300 group-hover:opacity-80" />
-              <div className="absolute bottom-4 left-4 right-4 z-10 flex flex-col">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-300 group-hover:opacity-70" />
+              <div className="absolute bottom-5 left-5 right-5 z-10 flex flex-col gap-1">
                 <span className="text-lg font-bold text-white">IGRecent</span>
-                <span className="text-xs text-zinc-300">Anonymous Story Viewer</span>
+                <span className="text-xs font-medium text-zinc-300">Anonymous Story Viewer</span>
               </div>
             </a>
           </div>
         </div>
         
-        <div className="flex flex-col items-center justify-between border-t border-zinc-200 pt-8 dark:border-zinc-900 md:flex-row">
-          <p className="text-xs text-zinc-500 dark:text-zinc-600">
-            &copy; {currentYear} igquery.com. All rights reserved.
+        <div className="flex flex-col items-center justify-between border-t border-zinc-100 pt-8 dark:border-zinc-900 md:flex-row">
+          <p className="text-xs font-medium text-zinc-500 dark:text-zinc-600">
+            &copy; {currentYear} IGQuery.com. All rights reserved.
           </p>
-          <div className="mt-4 flex gap-6 md:mt-0">
-            <span className="text-xs text-zinc-500 dark:text-zinc-400">Not affiliated with Instagram or Meta.</span>
+          <div className="mt-4 flex gap-6 md:mt-0 text-center md:text-left max-w-sm">
+            <span className="text-xs font-medium text-zinc-400 dark:text-zinc-500">IGQuery is not affiliated with, sponsored by, or endorsed by Google, Pinterest, TinEye, Instagram, Meta, or Microsoft Bing.</span>
           </div>
         </div>
       </div>

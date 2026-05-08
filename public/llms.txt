@@ -1,0 +1,58 @@
+# IGQuery
+
+IGQuery is a free image search techniques and query generator website that helps users find image sources, similar visuals, products, and search strategies for visual search platforms.
+
+The site provides practical guides and workflows for reverse image search, Google Images, Google Lens, TinEye, Pinterest Lens, Bing Visual Search, Yandex Images, product discovery, source tracing, and advanced image search operators.
+
+## Core Pages
+
+- Home and Image Search Strategy Generator: https://www.igquery.com/
+- Image Search Techniques Guide: https://www.igquery.com/image-search-techniques
+- Reverse Image Search Techniques: https://www.igquery.com/reverse-image-search-techniques
+- Google Image Search Techniques: https://www.igquery.com/google-image-search-techniques
+- Find Similar Images: https://www.igquery.com/find-similar-images
+- Find Product from Image: https://www.igquery.com/find-product-from-image
+- Find Original Image Source: https://www.igquery.com/find-original-image-source
+
+## Primary Topics
+
+- Image search techniques
+- Reverse image search
+- Visual similarity search
+- Google Images search operators
+- Google Lens tips
+- TinEye source tracing
+- Pinterest Lens visual discovery
+- Bing Visual Search
+- Product search from image
+- Finding original image sources
+- Image verification and attribution
+- Advanced image search queries
+
+## Recommended Entry Points
+
+For a broad overview of image search methods, start with:
+
+https://www.igquery.com/image-search-techniques
+
+For generating platform-specific search queries and workflows, start with:
+
+https://www.igquery.com/
+
+For finding where an image came from, use:
+
+https://www.igquery.com/find-original-image-source
+
+For learning reverse image search workflows, use:
+
+https://www.igquery.com/reverse-image-search-techniques
+
+For Google Images operators and Google Lens search tips, use:
+
+https://www.igquery.com/google-image-search-techniques
+
+## Notes
+
+IGQuery is not affiliated with, sponsored by, or endorsed by Google, Pinterest, TinEye, Instagram, Meta, Microsoft Bing, Yandex, or any third-party visual search platform mentioned on the site.
+
+The website is intended for lawful image search, research, verification, attribution, product discovery, and visual inspiration workflows.

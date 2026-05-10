@@ -76,7 +76,7 @@ export default function Footer() {
           <p className="text-xs font-bold uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
             Our Network
           </p>
-          <div className="grid grid-cols-1 gap-6 w-full max-w-4xl md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 w-full max-w-5xl sm:grid-cols-2 lg:grid-cols-4">
             {/* Card 1: RecentFollowed */}
             <a
               href="https://www.recentfollowed.net/"
@@ -90,7 +90,7 @@ export default function Footer() {
                 alt="RecentFollowed Background"
                 fill
                 unoptimized
-                sizes="(max-width: 768px) 100vw, 33vw"
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-300 group-hover:opacity-70" />
@@ -112,7 +112,7 @@ export default function Footer() {
                 alt="TTAnonViewer Background"
                 fill
                 unoptimized
-                sizes="(max-width: 768px) 100vw, 33vw"
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-300 group-hover:opacity-70" />
@@ -134,13 +134,35 @@ export default function Footer() {
                 alt="IGRecent Background"
                 fill
                 unoptimized
-                sizes="(max-width: 768px) 100vw, 33vw"
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-300 group-hover:opacity-70" />
               <div className="absolute bottom-5 left-5 right-5 z-10 flex flex-col gap-1">
                 <span className="text-lg font-bold text-white">IGRecent</span>
                 <span className="text-xs font-medium text-zinc-300">Anonymous Story Viewer</span>
+              </div>
+            </a>
+            {/* Card 4: XVideoSave */}
+            <a
+              href="https://www.xvideosave.net/"
+              title="XVideoSave - Twitter / X Video Downloader"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative h-48 w-full overflow-hidden rounded-2xl border border-zinc-100 dark:border-zinc-800"
+            >
+              <Image
+                src="https://s3.us-east-2.amazonaws.com/igquery.com/matrix/xvideosave.webp"
+                alt="XVideoSave Background"
+                fill
+                unoptimized
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-300 group-hover:opacity-70" />
+              <div className="absolute bottom-5 left-5 right-5 z-10 flex flex-col gap-1">
+                <span className="text-lg font-bold text-white">XVideoSave</span>
+                <span className="text-xs font-medium text-zinc-300">Twitter Video Downloader</span>
               </div>
             </a>
           </div>

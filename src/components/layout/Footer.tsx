@@ -173,7 +173,7 @@ export default function Footer() {
             &copy; {currentYear} IGQuery.com. All rights reserved.
           </p>
           <div className="mt-4 flex gap-6 md:mt-0 text-center md:text-left max-w-sm">
-            <span className="text-xs font-medium text-zinc-400 dark:text-zinc-500">IGQuery is not affiliated with, sponsored by, or endorsed by Google, Pinterest, TinEye, Instagram, Meta, or Microsoft Bing.</span>
+            <span className="text-xs font-medium text-zinc-500 dark:text-zinc-400">IGQuery is not affiliated with, sponsored by, or endorsed by Google, Pinterest, TinEye, Instagram, Meta, or Microsoft Bing.</span>
           </div>
         </div>
       </div>

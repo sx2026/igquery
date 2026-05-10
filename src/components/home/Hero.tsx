@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const HERO_IMAGE = "https://s3.us-east-2.amazonaws.com/igquery.com/image/5bddc63e624d4f62b4b37fa9bccc7534~tplv-tb4s082cfz-aigc_resize_4096_4096.webp";
+const HERO_IMAGE = "https://s3.us-east-2.amazonaws.com/igquery.com/image/igquery_home.webp";
 
 export default function Hero() {
   return (
@@ -34,7 +34,7 @@ export default function Hero() {
           </Link>
         </div>
 
-        <p className="mt-4 text-xs font-bold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">
+        <p className="mt-4 text-xs font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-widest">
           Works for Google Lens · TinEye · Pinterest · Bing · Yandex
         </p>
       </div>
@@ -49,7 +49,8 @@ export default function Hero() {
             height={680}
             className="w-full object-cover object-top"
             priority
-            unoptimized
+            fetchPriority="high"
+            quality={85}
           />
         </div>
       </div>

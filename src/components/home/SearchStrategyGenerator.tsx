@@ -106,10 +106,11 @@ export default function SearchStrategyGenerator() {
             </div>
 
             <div>
-              <label className="block text-sm font-bold text-zinc-700 dark:text-zinc-300 mb-1.5">
+              <label htmlFor="select-goal" className="block text-sm font-bold text-zinc-700 dark:text-zinc-300 mb-1.5">
                 Search Goal
               </label>
               <select
+                id="select-goal"
                 className="w-full rounded-2xl border-2 border-zinc-200 bg-zinc-50 px-4 py-3 text-sm font-medium focus:border-primary focus:bg-white focus:outline-none appearance-none dark:border-zinc-800 dark:bg-zinc-900 transition-colors"
                 value={params.goal}
                 onChange={(e) => setParams({ ...params, goal: e.target.value })}
@@ -125,10 +126,11 @@ export default function SearchStrategyGenerator() {
 
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-bold text-zinc-700 dark:text-zinc-300 mb-1.5">
+                <label htmlFor="select-platform" className="block text-sm font-bold text-zinc-700 dark:text-zinc-300 mb-1.5">
                   Target Platform
                 </label>
                 <select
+                  id="select-platform"
                   className="w-full rounded-2xl border-2 border-zinc-200 bg-zinc-50 px-4 py-3 text-sm font-medium focus:border-primary focus:bg-white focus:outline-none appearance-none dark:border-zinc-800 dark:bg-zinc-900 transition-colors"
                   value={params.platform}
                   onChange={(e) => setParams({ ...params, platform: e.target.value })}
@@ -176,7 +178,7 @@ export default function SearchStrategyGenerator() {
         {/* Right Column: Results */}
         <div id="results-area" className="lg:col-span-7 pt-4 lg:pt-0">
           {!hasGenerated && (
-            <p className="mb-4 text-xs font-bold uppercase tracking-widest text-zinc-400 text-center dark:text-zinc-600">
+            <p className="mb-4 text-xs font-bold uppercase tracking-widest text-zinc-500 text-center dark:text-zinc-400">
               ↓ Example output — enter your topic above to generate yours
             </p>
           )}

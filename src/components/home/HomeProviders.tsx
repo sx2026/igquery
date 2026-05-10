@@ -1,33 +1,17 @@
 "use client";
 
-import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 import { Toaster } from "sonner";
 
 export function HomeProviders({ children }: { children: React.ReactNode }) {
-  const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "";
-  const isValidKey = siteKey && !siteKey.includes("PLACEHOLDER") && siteKey.length > 10;
-
-  if (!isValidKey) {
-    return (
-      <>
-        {children}
-        <Toaster position="bottom-right" richColors />
-      </>
-    );
-  }
+  // Removed GoogleReCaptchaProvider to optimize FCP and LCP (saves ~364KB unused JS).
+  // If reCAPTCHA is needed in the future for an API call, wrap ONLY the specific
+  // form component (e.g., SearchStrategyGenerator) with the provider lazily, 
+  // rather than wrapping it on initial page load.
 
   return (
-    <GoogleReCaptchaProvider
-      reCaptchaKey={siteKey}
-      scriptProps={{
-        async: true,
-        defer: true,
-        appendTo: "head",
-        nonce: undefined,
-      }}
-    >
+    <>
       {children}
       <Toaster position="bottom-right" richColors />
-    </GoogleReCaptchaProvider>
+    </>
   );
 }

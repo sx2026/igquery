@@ -1,10 +1,20 @@
 import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
 import Hero from "@/components/home/Hero";
 import HomeClient from "@/components/home/HomeClient";
-import LandingSections from "@/components/home/LandingSections";
-import FAQ from "@/components/home/FAQ";
 import { HomeProviders } from "@/components/home/HomeProviders";
+import dynamic from "next/dynamic";
+
+const LandingSections = dynamic(() => import("@/components/home/LandingSections"), {
+  ssr: true,
+});
+
+const FAQ = dynamic(() => import("@/components/home/FAQ"), {
+  ssr: true,
+});
+
+const Footer = dynamic(() => import("@/components/layout/Footer"), {
+  ssr: true,
+});
 
 export default function Home() {
   return (

@@ -77,7 +77,7 @@ export default function SearchStrategyGenerator() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
         {/* Left Column: Form */}
-        <div className="lg:col-span-5 rounded-[2rem] bg-white p-6 shadow-lg ring-2 ring-primary/15 border border-primary/20 dark:bg-zinc-950 sticky top-24">
+        <div className="lg:col-span-5 rounded-[2rem] bg-white p-6 shadow-lg ring-2 ring-primary/15 border border-primary/20 dark:bg-zinc-950 lg:sticky lg:top-24">
           <div className="flex items-center gap-2 mb-2">
             <Sparkles className="h-5 w-5 text-primary" />
             <h2 className="text-xl font-extrabold text-zinc-900 dark:text-zinc-50">
